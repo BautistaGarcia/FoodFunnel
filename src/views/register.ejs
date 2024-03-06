@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/login.css">
+    <script src="https://kit.fontawesome.com/d5c465f7b6.js" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<% include("./partials/header.ejs"); %>
+<body>
+    <div class="container-formLogin">
+        <h1>register</h1>
+        <form action="/users/register" method="POST" enctype="multipart/form-data">
+            
+            <% if (locals.errores) {  
+
+                errores.forEach(error => { %>
+                    <p class="error"> <%= error.msg %> </p>
+                <%  }); 
+            }%>
+            
+            <input id="user-name" name="name" type="text" placeholder="Nombres" value="<%= locals.old && old.name ? old.name : '' %>">
+            <input type="fullName" name="fullName" id="fullName">
+            <input id="email" email="email" type="text" placeholder="Nombres" value="<%= locals.old && old.email ? old.email : '' %>">
+            <input id="password" password="password" type="text" placeholder="password" value="<%= locals.old && old.password ? old.password : '' %>">
+            <input type="file" name="image" id="image">
+            <div class="googleLog-container">
+                <i class="fa-brands fa-google"></i>
+                <p>log in with Google</p>
+            </div>
+            <button class="log-user">Submit</button>
+        </form>
+        <a href="">
+            Forgot your password?
+        </a>
+    </div>
+    
+</body>
+<script src="script/login.js"></script>
+</html>

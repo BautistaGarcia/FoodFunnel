@@ -1,0 +1,28 @@
+
+
+header {
+    width: 100%;
+    height: 10vh;
+    background-color: #bebebe;
+    position: fixed;
+    top: 0;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 10vh;
+        padding: 15px;
+
+        .image-container {
+            width: 50px;
+
+            img {
+                width: 100%;
+                border-radius: 50%;
+                max-height: 5vh;
+            }
+        }
+    }
+}

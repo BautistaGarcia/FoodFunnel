@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            width: 100%;
+            height: 10vh;
+            background-color: wheat;
+            position: fixed;
+            top: 0;
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding: 15px;
+
+                i {
+                    font-size: 28px;
+                }
+
+                .burguer-menu-container {
+                    position: relative;
+                    transform: translateY(-110%);
+                    transition: all .7s ease-in-out;
+                }
+            }
+        }
+
+        .order-container {
+            margin-top: 10vh;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(99, 53, 33);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+            span {
+                display: flex;
+                width: 100%;
+                padding: 15px;
+                color: white;
+                font-size: 24px;
+                border-bottom: white 3px solid;
+                justify-content: space-between;
+            }
+
+            p {
+                color: white;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<header>
+    <nav>
+        <h1>Food Funnel</h1>
+        <i class="fa-solid fa-burger" id="menuBurguer-btn">
+        </i>
+        <div class="burguer-menu-container">
+            <menu class="menu-burguer" id="menu-burguer">
+                <a href="#home">Home</a>
+                <a href="#recipes">recipes</a>
+            </menu>
+        </div>
+    </nav>
+</header>
+
+<body>
+
+    <section class="order-container">
+        <span>Your order <text>15000$</text></span>
+        <p>salmon rosado</p>
+        <p>salmon rosado</p>
+        <p>salmon rosado</p>
+        <p>salmon rosado</p>
+        <p>salmon rosado</p>
+    </section>
+
+</body>
+
+</html>

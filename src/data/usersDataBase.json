@@ -1,0 +1,22 @@
+[
+ {
+  "id": 1,
+  "first_name": "John",
+  "last_name": "Smith",
+  "e_mail": "john.smith"
+ },
+ {
+  "id": 2,
+  "first_name": "Resta",
+  "image": "alvaro.jpg",
+  "registered_date": 1709756684497,
+  "user_type_id": 2
+ },
+ {
+  "id": 3,
+  "first_name": "Resta",
+  "image": "alvaro.jpg",
+  "registered_date": 1709756703543,
+  "user_type_id": 2
+ }
+]
