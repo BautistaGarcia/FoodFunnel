@@ -48,7 +48,7 @@ const loginValidations = [
 ];
 
 
-router.get('/userProfile/:id',usersController.userProfile);
+router.get('/userProfile/:id', usersController.userProfile);
 
 // Login
 router.get('/login', usersController.login);

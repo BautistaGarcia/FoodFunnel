@@ -17,6 +17,15 @@ app.use(express.json())
 // Para poder usar los metodos put y delete
 app.use(methodOverride('_method'));
 
+// validation middlewares
+
+// en mantenimiento 404!
+// app.use((req, res, next) => {
+//     req.status(404).render('404-page');
+// })
+// 
+
+// 
 //************************************* Template Engine *************************************\\
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views/"));

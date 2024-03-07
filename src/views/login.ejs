@@ -13,6 +13,12 @@
     <div class="container-formLogin">
         <h1>Login</h1>
         <form action="/users/login" method="POST">
+            <% if (locals.errores) {  
+
+                errores.forEach(error => { %>
+                    <p class="error"> <%= error.msg %> </p>
+                <%  }); 
+            }%>
             <input type="email" name="email" id="email">
             <input type="password" name="password" id="password">
             <div class="googleLog-container">

@@ -3,20 +3,40 @@
   "id": 1,
   "first_name": "John",
   "last_name": "Smith",
-  "e_mail": "john.smith"
+  "email": "john.smith",
+  "registered_date": 12312312312,
+  "user_type_id": 1
  },
  {
   "id": 2,
   "first_name": "Resta",
+  "email": "Restaenvido@gmail.com",
+  "password": "$2a$10$rny/ciY4qJo7X6Zi5nbls.v8zVI6/3onrP5hn6gzLoAMm5.mPwP8G",
   "image": "alvaro.jpg",
-  "registered_date": 1709756684497,
-  "user_type_id": 2
+  "registered_date": 1709838191524
  },
  {
   "id": 3,
-  "first_name": "Resta",
+  "first_name": "",
+  "email": "",
+  "password": "$2a$10$hG1KsDKM5lrTWac62Py9gOqmVQ9Q21o.TtFszkrHFiwZNpG3RKXZC",
   "image": "alvaro.jpg",
-  "registered_date": 1709756703543,
-  "user_type_id": 2
+  "registered_date": 1709838748852
+ },
+ {
+  "id": 4,
+  "first_name": "dolape",
+  "email": "monito123!",
+  "password": "$2a$10$KU3ZGlw.Wz6Q9uXVR9ehbePsAUBwx/BJyR4/Zf7oiN07L7YBHkr/e",
+  "image": "alvaro.jpg",
+  "registered_date": 1709841905669
+ },
+ {
+  "id": 5,
+  "first_name": "dolape",
+  "email": "monito123!",
+  "password": "$2a$10$NS6voTs55s0CSIoGIbjRzedPw04rvLKkeuFKvQcz0.EtiAWOva0BW",
+  "image": "alvaro.jpg",
+  "registered_date": 1709841930710
  }
 ]

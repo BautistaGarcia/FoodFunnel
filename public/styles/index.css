@@ -5,10 +5,6 @@
 }
 
 
-body {
-    background-color: #bebebe;
-}
-
 .hero-img {
     margin-top: 10vh;
     width: 100%;
@@ -70,7 +66,7 @@ body {
 .food-card {
     position: relative;
     overflow: hidden;
-    border-radius: px;
+    border-radius: 24px;
 
 }
 

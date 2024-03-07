@@ -5,51 +5,53 @@ const app = express();
 const fs = require("fs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json())
-const {validationResult} = require("express-validator")
+const { validationResult } = require("express-validator")
+const bcrypt = require("bcryptjs")
+
 const usuarios = path.join(__dirname, "../data/usersDataBase.json")
-const bcrypt = require('bcryptjs')
 
 
 const usersController = {
-    
+
     order: (req, res) => {
         res.render("order.ejs")
     },
-    
+
     register: (req, res) => {
-        
+
         res.render("register")
     },
-    
-    processToRegister: (req, res) => {
-        
-        users = JSON.parse(fs.readFileSync(usuarios, 'utf-8'));
-        const errores = validationResult(req);  //--->Traemos las validaciones
 
-        if (!errores.isEmpty()) {//-->Si existen errores, se renderizan y además se renderizan los input de usuario que sean correctos en el objeto 'old' 
-            // console.log("Errores: ", errores);
-            return res.render("register", { errores: errores.array(), old: req.body })
+    processToRegister: (req, res) => {
+
+        users = JSON.parse(fs.readFileSync(usuarios, 'utf-8'));
+        const errors = validationResult(req);  //--->Traemos las validaciones
+        const passwordToValidate = req.body.password;
+        if (!errors.isEmpty()) {//-->Si existen errors, se renderizan y además se renderizan los input de usuario que sean correctos en el objeto 'old' 
+            // console.log("Errors: ", errors);
+            return res.render("register", { errors: errors.array(), old: req.body })
         } else {
             let createUser = {
-                
+
                 id: users[users.length - 1].id + 1,
                 first_name: req.body.name,      //-->Los nombres de los campos tienen que ser iguales a los nombres del modelo 'Usuario' de DB
                 full_name: req.body.full_name,
-                e_mail: req.body.email,
-                password: req.body.password,
+                email: req.body.email,
+                password: bcrypt.hashSync(passwordToValidate, 10),
                 image: req.file == undefined ? "alvaro.jpg" : req.file.filename,    //--> Acá guardamos el NOMBRE del archivo en la BD, y después se renderiza la ruta completa con EJS
                 registered_date: Date.now(),    //--> Esta función trae la fecha actual
 
-                user_type_id: 2,    //--> En este caso el Id debería ser siempre '2', porque es el que corresponde a 'common_user'
+                // user_type_id: 2,    //--> En este caso el Id debería ser siempre '2', porque es el que corresponde a 'common_user'
                 //--Definir cómo vamos a crear el usuario 'admin', que debería ser creado una sola vez.
             }
-                users.push(createUser)
 
-                fs.writeFileSync(users, JSON.stringify(users, null, ' '));
-                // mostrar lo que se guardo en una vista
-                console.log("aca esta el error")
+            users.push(createUser)
 
-                console.log("usuario a crear: ", createUser);  //--> Muestra por consola cómo quedó el registro que se inserta en la BD
+            fs.writeFileSync(usuarios, JSON.stringify(users, null, ' '));
+            // mostrar lo que se guardo en una vista
+            console.log("aca esta el error")
+
+            console.log("usuario a crear: ", createUser);  //--> Muestra por consola cómo quedó el registro que se inserta en la BD
             res.redirect('login')  //--> Una vez creado el registro en la DB. se redirige a la página de logueo
         }
     },
@@ -59,17 +61,68 @@ const usersController = {
     },
 
     processToLogin: (req, res) => {
-        const userToLog = {
-            email: req.body.email,
-            password: req.body.password,
+        const errors = validationResult(req);
+
+        users = JSON.parse(fs.readFileSync(usuarios, 'utf-8'));
+
+        let userToLog;
+
+        if (users === "") {
+            users = [];
+        } else {
+            users = users;
+        }
+        if (errors.isEmpty()) {
+
+            for (let user = 0; user < users.length; user++) {
+                /* en el siguiente if estamos diciendo si dentro de usuarios hay un
+                usuario con correo y el correo es estrctamente igual al que se esta
+                pasando por body y adema si la contrasena macheada y la contrasena y el email coinsiden vamos a guardar de usuarios un usuario y break */
+                if (users[user].email === req.body.email) {
+
+                    if (bcrypt.compareSync(req.body.password, users[user].password)) {
+                        userToLog = users[user];
+                        break;
+                    }
+                }
+            }
+
+            if (userToLog === undefined) {
+
+                res.render("login.ejs", {
+                    errors: [
+
+                        { msg: 'La contraseña o el correo no coinciden' }
+                    ],
+                    old: req.body
+                });
+            }
+            // req.session.userLoggedIn = userToLog;
+            res.redirect('userProfile/${userToLog.id}')
+        } else {
+            return res.render('login.ejs', { errors: errors.array(), old: req.body })
+        }
+    },
+
+    // (GET) Dinamismo de los Usuarios
+    userProfile: (req, res) => {
+        users = JSON.parse(fs.readFileSync(usuarios, 'utf-8'));
+        let id = req.params.id
+
+        let definedUser = users.find(user => {
+            return user.id == id;
+
+        })
+
+        if (definedUser) {
+            res.render("userProfile.ejs", { user: definedUser });
+
+        } else {
+            res.render("register.ejs");
         }
 
-        res.redirect("/", { userToLog })
     },
 
-    userProfile: (req, res) => {
-        res.render("userProfile.ejs")
-    },
 
     logOut: (req, res) => {
         res.render("logOut.ejs")
@@ -80,10 +133,22 @@ const usersController = {
     },
 
     destroy: (req, res) => {
-        res.render("userProfile.ejs")
-    },
+        users = JSON.parse(fs.readFileSync(usuarios, 'utf-8'));
+		
+		user = users.filter(user =>{
+                                /* params-session */
+			return user.id != req.params.id;
 
+		})
+
+        fs.writeFileSync(usuarios, JSON.stringify(users, null, ' '));
+
+		res.redirect("/")
+	}
 
 }
+
+
+
 
 module.exports = usersController;
