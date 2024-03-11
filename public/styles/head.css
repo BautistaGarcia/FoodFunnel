@@ -4,8 +4,15 @@
     margin: 0;
     scrollbar-width:thin ;
     scrollbar-color: wheat ;
+    list-style: none;
+    text-decoration: none;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
 }

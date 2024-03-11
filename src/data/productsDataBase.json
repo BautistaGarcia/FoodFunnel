@@ -1,0 +1,17 @@
+[
+{
+
+}
+,
+{
+    "id": 1,
+    "imagen": "",
+    "marca": "tomasso",
+    "nombre": "Pizza marguerita",
+    "precio": 20.000,
+    "descuento": 15,
+    "descripcion": "tomatoes, cheese, olives",
+    "cantidad": 2000,
+    "categories": "pizza"
+}
+]

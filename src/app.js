@@ -35,9 +35,15 @@ app.set("views", path.resolve(__dirname, "views/"));
 const mainRouter = require("./routes/mainRouter");
 app.use("/", mainRouter); //---> este es el entry point !!!
 // 
+
 // user
 const usersRouter = require("./routes/usersRouter");
 app.use("/users", usersRouter);
+// 
+
+// products
+const productsRouter = require("./routes/productsRouter");
+app.use("/products", productsRouter);
 // 
 
 //************************************* Listen Server *************************************\\

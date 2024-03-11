@@ -15,6 +15,10 @@ const mainController = {
         res.render("index.ejs")
     },
 
+    order: (req, res) => {
+        res.render("order.ejs")
+    },
+
 }
 
 module.exports = mainController;

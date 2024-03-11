@@ -4,85 +4,254 @@
     margin: 0;
 }
 
-
-.hero-img {
-    margin-top: 10vh;
-    width: 100%;
-    max-height: 50vh;
+body {
+    background-color: whitesmoke;
 }
 
-.slider-category-container {
-    width: 100vw;
-    overflow-x: scroll;
+h2,
+h3 {
+    margin: 0.5rem 0 0.5rem;
+    text-align: center;
+}
 
-    .slider-category {
-        overflow: hidden;
-        display: flex;
-        width: 200vw;
-        justify-content: flex-start;
-        align-items: center;
-
-        article {
-            width: 20vw;
-            display: flex;
-            justify-content: center;
-            background-color: white;
-            border-radius: 8px;
-            margin: 5px;
-            font-size: 18px;
-            padding: 5px;
-        }
-    }
+.hero-img {
+    width: 100%;
+    max-height: 25vh;
+    border-radius: 18px;
+    margin-top: 2vh;
+    padding: 5px;
 }
 
 .promotion {
+    position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
 
+
+    .expand-offert-banner {
+        position: absolute;
+        bottom: 0;
+        color: white;
+        background: #7c560e;
+        border: 2px solid white;
+        padding: 5.5px;
+        border-radius: 18px;
+    }
+
     img {
-        width: 80%;
+        width: 100%;
         border-radius: 50px;
     }
 }
 
 .flex-slider {
     display: flex;
-    flex-direction: column;
     width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+
 
     .grid-item {
         display: grid;
         gap: 5px;
         padding: 5px;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
 
-        img {
-            width: 100%;
+        .category-item {
+            margin: 5px;
+
+            a {
+                min-width: 15vw;
+                width: 300px;
+
+                img {
+                    border-radius: 18px;
+                    width: 100%;
+                    height: 10vh;
+                }
+
+                span {
+                    font-size: 18px;
+                    color: black;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+.hotSale-tittle {
+    display: flex;
+    justify-content: space-around;
+
+    i {
+        font-size: 14px;
+        padding: 5px;
+        color: white;
+        background-color: gray;
+        border-radius: 50%;
+    }
+
+    .expland-offerts-benefits {
+        font-size: 8px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+.hotSale-carousel {
+    width: 100vw;
+    overflow-x: scroll;
+
+    .overflow-container {
+        width: 200%;
+        overflow: hidden;
+        display: flex;
+
+        .food-card {
+            width: 45vw;
+            margin: 1rem;
+            position: relative;
+            display: flex;
+            border-radius: 12px;
+            box-shadow: 0px 0px 5px 1px lightgray;
+            flex-direction: column;
+            justify-content: space-around;
+
+            .offer-timing-container {
+                width: 100%;
+                background: #b52525;
+                position: absolute;
+                top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                padding: 3px;
+                border-radius: 12px 12px 0 0;
+                color: wheat;
+                border: 1px solid black;
+                border-bottom: 1px solid white;
+            }
+
+            p {
+                display: flex;
+                justify-content: start;
+
+                span {
+                    font-size: 18px;
+                    color: rgb(255, 136, 0);
+                    margin-left: 5px;
+                }
+            }
+
+            .offer-info {
+                font-size: 24px;
+                line-height: 30px;
+                color: black;
+            }
+
+            .restaurant-adress {
+                font-size: 18px;
+                color: gray;
+            }
+
+            .btn-pay-object {
+                width: 90%;
+                background: black;
+                padding: 5px;
+                margin: 15px auto 15px auto;
+                text-align: center;
+                border-radius: 18px;
+
+                a {
+                    font-size: 24px;
+                    color: white;
+                }
+            }
+
+
+            img {
+                width: 100%;
+                border-radius: 12px 12px 0 0;
+
+            }
+
+
         }
     }
 }
 
-.food-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 24px;
-
-}
-
 @media (min-width:425px) {
+
+    .hero-img {
+        max-height: 35vh;
+    }
+
+    .promotion {
+        padding: 0 25px;
+        height: 20vh;
+    }
+
+    .main-container {
+        width: 85%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .second-container {
+        width: 85%;
+        margin: auto;
+        overflow: hidden;
+
+    }
+
     .flex-slider {
 
         .grid-item {
             display: grid;
             gap: 5px;
             padding: 5px;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
         }
+    }
+
+    .hotSale-tittle {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .hotSale-carousel {
+        .overflow-container {
+            .food-card {
+                width: 25vw;
+
+            }
+
+        }
+
     }
 }
 
 @media (min-width:768px) {
+
+    .hero-img {
+        max-height: 45vh;
+    }
+
+    .hotSale-carousel {
+        .overflow-container {
+            .food-card {
+                width: 15vw;
+            }
+        }
+    }
+
     .flex-slider {
 
         .grid-item {

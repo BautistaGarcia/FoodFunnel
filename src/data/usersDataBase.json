@@ -38,5 +38,13 @@
   "password": "$2a$10$NS6voTs55s0CSIoGIbjRzedPw04rvLKkeuFKvQcz0.EtiAWOva0BW",
   "image": "alvaro.jpg",
   "registered_date": 1709841930710
+ },
+ {
+  "id": 6,
+  "first_name": "",
+  "email": "",
+  "password": "$2a$10$djUQzv4P28zPf2CSkGHo4uAIH1oiKy..k.ZU5pq6.up.dvd/mJjbW",
+  "image": "alvaro.jpg",
+  "registered_date": 1709922455008
  }
 ]
