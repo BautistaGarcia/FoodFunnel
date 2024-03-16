@@ -14,12 +14,49 @@ h3 {
     text-align: center;
 }
 
-.hero-img {
-    width: 100%;
-    max-height: 25vh;
-    border-radius: 18px;
-    margin-top: 2vh;
-    padding: 5px;
+.main-container {
+    .slider-wrapper {
+        position: relative;
+        max-width: 48rem;
+        margin: 0 auto;
+
+        .slider {
+            display: flex;
+            aspect-ratio: 16 / 9;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+
+            img {
+                flex: 1 0 100%;
+                scroll-snap-align: start;
+
+            }
+        }
+
+        .slider-nav {
+            display: flex;
+            column-gap: 1rem;
+            position: absolute;
+            bottom: 1.25rem;
+            left: 50%;
+            transform: translateX( -50% );
+            z-index: 1;
+
+            a {
+                width: 0.5rem;
+                height: 0.5rem;
+                border-radius: 50%;
+                background-color:#fff;
+                opacity: 0.75;
+                transition: opacity ease 250ms;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }
 
 .promotion {
@@ -115,7 +152,9 @@ h3 {
         display: flex;
 
         .food-card {
-            width: 45vw;
+            min-width: 200px;
+            width: 800px;
+            height: 100%;
             margin: 1rem;
             position: relative;
             display: flex;
@@ -123,6 +162,7 @@ h3 {
             box-shadow: 0px 0px 5px 1px lightgray;
             flex-direction: column;
             justify-content: space-around;
+
 
             .offer-timing-container {
                 width: 100%;
@@ -177,6 +217,7 @@ h3 {
 
 
             img {
+                min-width: 200px;
                 width: 100%;
                 border-radius: 12px 12px 0 0;
 
@@ -189,19 +230,8 @@ h3 {
 
 @media (min-width:425px) {
 
-    .hero-img {
-        max-height: 35vh;
-    }
-
     .promotion {
-        padding: 0 25px;
         height: 20vh;
-    }
-
-    .main-container {
-        width: 85%;
-        margin: auto;
-        overflow: hidden;
     }
 
     .second-container {
@@ -226,28 +256,19 @@ h3 {
         justify-content: space-between;
     }
 
+
+}
+
+@media (min-width:769px) {
+
     .hotSale-carousel {
         .overflow-container {
             .food-card {
                 width: 25vw;
 
-            }
-
-        }
-
-    }
-}
-
-@media (min-width:768px) {
-
-    .hero-img {
-        max-height: 45vh;
-    }
-
-    .hotSale-carousel {
-        .overflow-container {
-            .food-card {
-                width: 15vw;
+                img {
+                    min-width: 175px;
+                }
             }
         }
     }

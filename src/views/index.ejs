@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="#" type="image/x-icon">
         <link rel="stylesheet" href="/styles/index.css">
-        <script src="https://kit.fontawesome.com/d5c465f7b6.js" crossorigin="anonymous"></script>
 
         <%- include('./partials/head') %>
                 <title>food Funnel</title>
@@ -15,16 +14,25 @@
 
         <body>
                 <section class="main-container">
-                        <img class="hero-img" src="/img/hero-image-foodFunnel.jpg" alt="">
-
-                        <section class="promotion">
-                                <img src="/img/banner-food.jpg" alt="">
-                                <div class="expand-offert-banner">
-                                        <p>see more</p>
+                        <div class="slider-wrapper">
+                                <div class="slider">
+                                        <img id="hero-img1" src="/img/hero-image-foodFunnel.jpg"
+                                                alt="">
+                                        <img id="hero-img2" src="/img/hero-image-foodFunnel.jpg"
+                                                alt="">
+                                        <img id="hero-img3" src="/img/hero-image-foodFunnel.jpg"
+                                                alt="">
+                                        <img id="hero-img4" src="/img/offer-FoodFunnel.jpg"
+                                                alt="">
                                 </div>
-                        </section>
+                                <div class="slider-nav">
+                                        <a href="#hero-img1"></a>
+                                        <a href="#hero-img2"></a>
+                                        <a href="#hero-img3"></a>
+                                        <a href="#hero-img4"></a>
 
-
+                                </div>
+                        </div>
                 </section>
 
                 <section class="second-container">
@@ -32,45 +40,59 @@
                                 <i class="fa-solid fa-question" class="expland-offerts-benefits"></i>
                                 <p class="see-all-offerts">See more</p>
                         </h3>
+                        <hr>
+
                         <section class="flex-slider">
                                 <div class="grid-item">
                                         <article class="category-item">
-                                                <a href="/products/category/">
+                                                <a href="/products/category/burguer">
                                                         <img src="/img/products/Hamburguesa.jpg" alt="">
                                                         <span>Burgers</span>
                                                 </a>
                                         </article>
 
                                         <article class="category-item">
-                                                <a href="/products/category/">
+                                                <a href="/products/category/ice-cream">
                                                         <img src="/img/products/helados.jpg" alt="">
                                                         <span>Ice cream</span>
                                                 </a>
 
                                         </article>
                                         <article class="category-item">
-                                                <a href="/products/category/">
+                                                <a href="/products/category/coffe">
                                                         <img src="/img/products/coffe.jpg" alt="">
                                                         <span>coffe</span>
                                                 </a>
 
                                         </article>
                                         <article class="category-item">
-                                                <a href="/products/category/">
-                                                        <img src="/img/products/bife.jpg" alt="">
-                                                        <span>Restaurants</span>
+                                                <a href="/products/category/pizza">
+                                                        <img src="/img/products/pizza.jpg" alt="">
+                                                        <span>Pizza</span>
                                                 </a>
                                         </article>
                                         <article class="category-item">
-                                                <a href="/products/category/">
-                                                        <img src="/img/products/Hamburguesa.jpg" alt="">
-                                                        <span>Burgers</span>
+                                                <a href="/products/category/noodles">
+                                                        <img src="/img/products/noodles.jpg" alt="">
+                                                        <span>noodles</span>
                                                 </a>
                                         </article>
                                         <article class="category-item">
-                                                <a href="/products/category/">
-                                                        <img src="/img/products/Hamburguesa.jpg" alt="">
-                                                        <span>Burgers</span>
+                                                <a href="/products/category/meal">
+                                                        <img src="/img/products/Meal.jpg" alt="">
+                                                        <span>Meal</span>
+                                                </a>
+                                        </article>
+                                        <article class="category-item">
+                                                <a href="/products/category/alcohol">
+                                                        <img src="/img/products/alcohol.jpg" alt="">
+                                                        <span>alcohol</span>
+                                                </a>
+                                        </article>
+                                        <article class="category-item">
+                                                <a href="/products/category/beers">
+                                                        <img src="/img/products/beers.jpg" alt="">
+                                                        <span>beers</span>
                                                 </a>
                                         </article>
                                 </div>
@@ -79,135 +101,71 @@
                                 <i class="fa-solid fa-question" class="expland-offerts-benefits"></i>
                                 <p class="see-all-offerts">See more</p>
                         </h3>
+                        <hr>
                         <section class="hotSale-carousel">
                                 <div class="overflow-container">
-                                        <article class="food-card">
-                                                <div class="offer-timing-container">
-                                                        <i class="fa-solid fa-stopwatch"></i>
-                                                        <span>Ends in: 16.09:35</span>
-                                                </div>
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">2x1 Gin Tonic</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                        <div class="btn-pay-object">
-                                                                <a href="#">Buy Now!</a>
+
+                                        <% ofertedProducts.forEach(productOferted=> { %>
+                                                <article class="food-card">
+                                                        <div class="offer-timing-container">
+                                                                <i class="fa-solid fa-stopwatch"></i>
+                                                                <span>Ends in: 16.09:35</span>
                                                         </div>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <div class="offer-timing-container">
-                                                        <i class="fa-solid fa-stopwatch"></i>
-                                                        <span>Ends in: 16.09:35</span>
-                                                </div>
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">2x1 Gin Tonic</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                        <div class="btn-pay-object">
-                                                                <a href="#">Buy Now!</a>
+                                                        <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                                        <div class="product-image-container">
+                                                                <a
+                                                                        href="/products/productDetail/<%= productOferted.id%>">
+                                                                        <p>$<%= productOferted.price%> <span>
+                                                                                                <%=
+                                                                                                        productOferted.price%>
+                                                                                        </span>
+                                                                                        <%= productOferted.discount%>
+                                                                        </p>
+                                                                        <span class="offer-info">
+                                                                                <%= productOferted.name%>
+                                                                        </span><br>
+                                                                        <a href="#" class="restaurant-adress">
+                                                                                <%= productOferted.brand%>
+                                                                                        <%= productOferted.location%>
+                                                                        </a>
+                                                                </a>
+                                                                <div class="btn-pay-object">
+                                                                        <a href="#">Buy Now!</a>
+                                                                </div>
                                                         </div>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <div class="offer-timing-container">
-                                                        <i class="fa-solid fa-stopwatch"></i>
-                                                        <span>Ends in: 16.09:35</span>
-                                                </div>
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">2x1 Gin Tonic</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                        <div class="btn-pay-object">
-                                                                <a href="#">Buy Now!</a>
-                                                        </div>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <div class="offer-timing-container">
-                                                        <i class="fa-solid fa-stopwatch"></i>
-                                                        <span>Ends in: 16.09:35</span>
-                                                </div>
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">2x1 Gin Tonic</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                        <div class="btn-pay-object">
-                                                                <a href="#">Buy Now!</a>
-                                                        </div>
-                                                </div>
-                                        </article>
+                                                </article>
+                                                <% }) %>
                                 </div>
                         </section>
                         <h3 class="hotSale-tittle">Most Popular :
                                 <i class="fa-solid fa-question" class="expland-offerts-benefits"></i>
                                 <p class="see-all-offerts">See more</p>
                         </h3>
+                        <hr>
+
                         <section class="hotSale-carousel">
                                 <div class="overflow-container">
-                                        <article class="food-card">
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">desayuno </span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">desayuno clasico con
-                                                                        medialunas</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">desayuno clasico con
-                                                                        medialunas</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">desayuno clasico con
-                                                                        medialunas</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                </div>
-                                        </article>
+                                        <% products.forEach(product=> { %>
+                                                <article class="food-card">
+                                                        <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                                        <div class="product-image-container">
+                                                                <a href="/products/productDetail/<%=product.id%>">
+                                                                        <p>$<%= product.price%> <span>
+                                                                                                <%= product.discount%>%
+                                                                                        </span></p>
+                                                                        <span class="offer-info">
+                                                                                <%= product.name%>
+                                                                        </span>
+                                                                        <br>
+                                                                        <a href="#" class="restaurant-adress">
+                                                                                <%= product.brand%>
+                                                                                        <%= product.location%>
+                                                                        </a>
+                                                                </a>
+                                                        </div>
+                                                </article>
+                                                <% }) %>
+
                                 </div>
                         </section>
 
@@ -223,56 +181,32 @@
                                 <i class="fa-solid fa-question" class="expland-offerts-benefits"></i>
                                 <p class="see-all-offerts">See more</p>
                         </h3>
+                        <hr>
+
                         <section class="hotSale-carousel">
                                 <div class="overflow-container">
-                                        <article class="food-card">
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">desayuno clasico con
-                                                                        medialunas</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">desayuno clasico con
-                                                                        medialunas</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">desayuno clasico con
-                                                                        medialunas</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                </div>
-                                        </article>
-                                        <article class="food-card">
-                                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
-                                                <div class="product-image-container">
-                                                        <a href="/products/productDetail">
-                                                                <p>$18.000 <span>$15.000</span></p>
-                                                                <span class="offer-info">desayuno clasico con
-                                                                        medialunas</span>
-                                                                <a href="#" class="restaurant-adress">
-                                                                        tomasso - aguero</a>
-                                                        </a>
-                                                </div>
-                                        </article>
+                                        <% restaurantProducts.forEach(restaurantProduct=> { %>
+                                                <article class="food-card">
+                                                        <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                                        <div class="product-image-container">
+                                                                <a href="/products/productDetail/<%=restaurantProduct.id%>">
+                                                                        <p>$<%= restaurantProduct.price%> <span>
+                                                                                                <%=
+                                                                                                        restaurantProduct.discount%>
+                                                                                                        %
+                                                                                        </span></p>
+                                                                        <span class="offer-info">
+                                                                                <%= restaurantProduct.name%>
+                                                                        </span>
+                                                                        <a href="#" class="restaurant-adress">
+                                                                                <%= restaurantProduct.brand%>
+                                                                                        <%= restaurantProduct.location%>
+                                                                        </a>
+                                                                </a>
+                                                        </div>
+                                                </article>
+                                                <% }) %>
+
                                 </div>
                         </section>
 

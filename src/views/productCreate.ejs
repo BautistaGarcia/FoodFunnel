@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/productDetail.css">
+    <%- include('./partials/head') %>
+        <title>Document</title>
+</head>
+<%- include('./partials/header') %>
+
+    <body>
+        <article class="single-card">
+            <div class="goBack-container">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="image-container">
+                <img src="/img/hero-image-foodFunnel.jpg" alt="">
+            </div>
+
+            <ul class="text">
+                <form action="" method="post">
+                <li><input type="text" name="name" placeholder="name"></li>
+                <li><input type="text" name="description" placeholder="description"></li>
+                <li><input type="number" name="quantity" placeholder="quantity"></li>
+                <li><input type="number" name="price" placeholder="price"></li>
+                <li><input type="number" name="discount" placeholder="discount"></li>
+                <li><input type="text" name="brand" placeholder="brand"></li>
+                <li><input type="text" name="adress" placeholder="adress"></li>
+                <li><input type="text" name="category" placeholder="category"></li>
+                <li><input type="text" name="location" placeholder="location"></li>
+                <li><i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>0/5</span>
+                </li>
+            <input type="submit" value="Submit">
+            </form>
+            </ul>
+        </article>
+    </body>
+
+</html>

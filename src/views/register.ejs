@@ -21,14 +21,11 @@
                 <%  }); 
             }%>
             <label for="name">Name:</label><br>
-            <input id="user-name" name="name" type="text" placeholder="Nombres" value="<%= locals.old && old.name ? old.name : '' %>">
-            <label for="fullName">Full Name:</label><br>
-            <input type="fullName" name="fullName" id="fullName">
+            <input id="user-name" name="name" type="text" placeholder="Name" value="<%= locals.old && old.name ? old.name : '' %>">
             <label for="email">Email:</label><br>
-            <input id="email" name="email" type="text" placeholder="Nombres" value="<%= locals.old && old.email ? old.email : '' %>">
+            <input id="email" name="email" type="text" placeholder="email" value="<%= locals.old && old.email ? old.email : '' %>">
             <label for="password">Password:</label><br>
             <input id="password" name="password" type="text" placeholder="password" value="<%= locals.old && old.password ? old.password : '' %>">
-            <label for="image">Image:</label><br>
             <input type="file" name="image" id="image">
             <div class="googleLog-container">
                 <i class="fa-brands fa-google"></i>

@@ -7,16 +7,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json())
 const { log } = require("console");
 
+const productsJSON = path.join(__dirname,"../data/productsDataBase.json");
 
 
 const mainController = {
 
     index: (req, res) => {
-        res.render("index.ejs")
-    },
+        const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
+        const ofertedProducts =  products.filter(product => product.discount != 0 ) 
+        const restaurantProducts = products.filter(product => product.brand  ) 
 
-    order: (req, res) => {
-        res.render("order.ejs")
+        res.render("index.ejs", {products, ofertedProducts, restaurantProducts})
     },
 
 }

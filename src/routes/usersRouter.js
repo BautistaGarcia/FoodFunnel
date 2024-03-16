@@ -6,6 +6,8 @@ const multer = require('multer');
 const path = require("path");
 const { body, check } = require('express-validator');
 
+const authMiddleware = require("../middlewares/authMiddleware");
+const guestMiddleware = require("../middlewares/guestMiddleware");
 
 const usersController = require("../controllers/usersController");
 
@@ -48,7 +50,8 @@ const loginValidations = [
 ];
 
 
-router.get('/userProfile/:id', usersController.userProfile);
+router.get('/userProfile/:id', authMiddleware.common_user, authMiddleware.profile_filter, usersController.userProfile);
+router.put('/userProfile/:id', /* upload.single("imgProfile") ,*/ authMiddleware.common_user, usersController.editUser);
 
 // Login
 router.get('/login', usersController.login);
@@ -64,10 +67,6 @@ router.post('/register', upload.single('imgProfile'), usersController.processToR
 router.delete('/logOut', usersController.logOut);
 
 
-// Editar Preferencias
-/* router.get('/editUser/:id', authMiddleware,usersController.edit)  /*--> se aplica el 'authMiddleware' (si el usuario está logueado, continúa con el controlador,
-                                                                                     * si no, lo redirige al login) */ 
-router.put('/userProfile/:id', /* upload.single("imgProfile") ,*/ usersController.editUser);
 
 // Eliminar usuario 
 router.delete('/delete/:id',usersController.destroy); /* se aplica el 'authMiddleware' (si el usuario está logueado, continúa con el controlador,

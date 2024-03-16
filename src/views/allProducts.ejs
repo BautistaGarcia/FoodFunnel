@@ -1,22 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/allProducts.css">
     <%- include('./partials/head') %>
-    <title>Document</title>
+        <title>Document</title>
 </head>
 <%- include('./partials/header') %>
-<body>
-    <section class="all-products">
-        <span>all Products</span>
-    </section>
-    <section class="per-restaurant">
-        <span>Restaurant </span>
-    </section>
-    <section class="per-category">
-        <h3span>Category</span>
-    </section>
-</body>
-<%- include('./partials/footer') %>
+
+    <body>
+        <section class="all-products">
+            <span>all Products</span><br>
+            <div class="productList">
+
+                <section class="product-carousel">
+                    <div class="overflow-container">
+                        <% products.forEach(product=> { %>
+
+                            <article class="food-card">
+                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                <div class="product-image-container">
+                                    <a href="/products/productDetail/<%=product.id%>">
+                                        <p>$<%= product.price %> <span>15%</span></p>
+                                        <span class="offer-info">
+                                            <%= product.name %>
+                                        </span>
+                                    </a><a href="#" class="restaurant-adress">
+                                        <%= product.brand %>
+                                    </a>
+
+                                </div>
+                            </article>
+                            <%}) %>
+
+                    </div>
+                </section>
+                <hr>
+                <section class="product-carousel">
+                    <div class="overflow-container">
+                        <% products.forEach(product=> { %>
+
+                            <article class="food-card">
+                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                <div class="product-image-container">
+                                    <a href="/products/productDetail/<%=product.id%>">
+                                        <p>$<%= product.price %> <span>15%</span></p>
+                                        <span class="offer-info">
+                                            <%= product.name %>
+                                        </span>
+                                    </a><a href="#" class="restaurant-adress">
+                                        <%= product.brand %>
+                                    </a>
+
+                                </div>
+                            </article>
+                            <%}) %>
+
+                    </div>
+                </section>
+                <hr>
+            </div>
+        </section>
+        <section class="per-restaurant">
+            <span>Restaurant </span>
+            <section class="product-carousel">
+                <div class="overflow-container">
+                    <% products.forEach(product=> { %>
+
+                        <article class="food-card">
+                            <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                            <div class="product-image-container">
+                                <a href="/products/productDetail/<%=product.id%>">
+                                    <p>$<%= product.price %> <span>15%</span></p>
+                                    <span class="offer-info">
+                                        <%= product.name %>
+                                    </span>
+                                </a><a href="#" class="restaurant-adress">
+                                    <%= product.brand %>
+                                </a>
+
+                            </div>
+                        </article>
+                        <%}) %>
+
+                </div>
+            </section>
+            <hr>
+            <section class="product-carousel">
+                <div class="overflow-container">
+                    <% products.forEach(product=> { %>
+
+                        <article class="food-card">
+                            <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                            <div class="product-image-container">
+                                <a href="/products/productDetail/<%=product.id%>">
+                                    <p>$<%= product.price %> <span>15%</span></p>
+                                    <span class="offer-info">
+                                        <%= product.name %>
+                                    </span>
+                                </a><a href="#" class="restaurant-adress">
+                                    <%= product.brand %>
+                                </a>
+
+                            </div>
+                        </article>
+                        <%}) %>
+
+                </div>
+            </section>
+            <hr>
+            <section class="product-carousel">
+                <div class="overflow-container">
+                    <% products.forEach(product=> { %>
+
+                        <article class="food-card">
+                            <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                            <div class="product-image-container">
+                                <a href="/products/productDetail/<%=product.id%>">
+                                    <p>$<%= product.price %> <span>15%</span></p>
+                                    <span class="offer-info">
+                                        <%= product.name %>
+                                    </span>
+                                </a><a href="#" class="restaurant-adress">
+                                    <%= product.brand %>
+                                </a>
+
+                            </div>
+                        </article>
+                        <%}) %>
+
+                </div>
+            </section>
+            <hr>
+        </section>
+        <section class="per-category">
+            <span>Category</span>
+            <section class="product-carousel">
+                <div class="overflow-container">
+                    <% products.forEach(product=> { %>
+
+                        <article class="food-card">
+                            <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                            <div class="product-image-container">
+                                <a href="/products/productDetail/<%=product.id%>">
+                                    <p>$<%= product.price %> <span>15%</span></p>
+                                    <span class="offer-info">
+                                        <%= product.name %>
+                                    </span>
+                                </a><a href="#" class="restaurant-adress">
+                                    <%= product.brand %>
+                                </a>
+                            </div>
+                        </article>
+                        <%}) %>
+                </div>
+            </section>
+            <hr>
+            <section class="product-carousel">
+                <div class="overflow-container">
+                    <% products.forEach(product=> { %>
+
+                        <article class="food-card">
+                            <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                            <div class="product-image-container">
+                                <a href="/products/productDetail/<%=product.id%>">
+                                    <p>$<%= product.price %> <span>15%</span></p>
+                                    <span class="offer-info">
+                                        <%= product.name %>
+                                    </span>
+                                </a><a href="#" class="restaurant-adress">
+                                    <%= product.brand %>
+                                </a>
+
+                            </div>
+                        </article>
+                        <%}) %>
+
+                </div>
+            </section>
+            <hr>
+        </section>
+    </body>
+    <%- include('./partials/footer') %>
+
 </html>

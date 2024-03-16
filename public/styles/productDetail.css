@@ -6,8 +6,10 @@
     padding: 10px;
     font-size: 29px;
     border-radius: 50%;
-    color: white;
 
+    a {
+        color: white;
+    }
 }
 
 .single-card {
@@ -25,6 +27,11 @@
 
 .product-offert-container {
     display: flex;
+    align-items: center;
+    
+    li {
+        display: flex;
+    }
 }
 
 ul {

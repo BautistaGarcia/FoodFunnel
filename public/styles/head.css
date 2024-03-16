@@ -16,3 +16,8 @@ body {
     margin-top: 10vh;
     margin-bottom: 5vh;
 }
+
+img {
+    object-fit: cover;
+    flex: 1 0 100%;
+}
