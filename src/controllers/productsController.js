@@ -24,7 +24,6 @@ const productsController = {
             });
 
             res.render("productDetail.ejs");
-
         } catch (err) {
             res.render("404Found.ejs");
         }

@@ -107,7 +107,7 @@
                         <section class="hotSale-carousel">
                                 <div class="overflow-container">
 
-                                        <% ofertedProducts.forEach(productOferted=> { %>
+                                        <% products.forEach(product=> { %>
                                                 <article class="food-card">
                                                         <div class="offer-timing-container">
                                                                 <i class="fa-solid fa-stopwatch"></i>
@@ -116,19 +116,18 @@
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
                                                                 <a
-                                                                        href="/products/productDetail/<%= productOferted.id%>">
-                                                                        <p>$<%= productOferted.price%> <span>
-                                                                                                <%=
-                                                                                                        productOferted.price%>
+                                                                        href="/products/productDetail/<%= product.id%>">
+                                                                        <p>$<%= product.price%> <span>
+                                                                                                <%=product.price%>
                                                                                         </span>
-                                                                                        <%= productOferted.discount%>
+                                                                                        <%= product.discount%>
                                                                         </p>
                                                                         <span class="offer-info">
-                                                                                <%= productOferted.name%>
+                                                                                <%= product.name%>
                                                                         </span><br>
                                                                         <a href="#" class="restaurant-adress">
-                                                                                <%= productOferted.brand%>
-                                                                                        <%= productOferted.location%>
+                                                                                <%= product.brand%>
+                                                                                        <%= product.location%>
                                                                         </a>
                                                                 </a>
                                                                 <div class="btn-pay-object">
@@ -166,7 +165,7 @@
                                                                 </a>
                                                         </div>
                                                 </article>
-                                        <% }) %>
+                                                <% }) %>
 
                                 </div>
                         </section>

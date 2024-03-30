@@ -13,7 +13,6 @@ router.get('/productDetail/:id', productsController.productDetail);
 
 router.get('/all', productsController.allProducts);
 
-
 // Buscar un producto
 router.get('/search', productsController.search);
 

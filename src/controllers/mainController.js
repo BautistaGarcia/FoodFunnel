@@ -3,21 +3,17 @@ const path = require("path")
 const express = require("express")
 const app = express();
 const fs = require("fs");
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json())
 const db = require("../data/database/models");
 const { log } = require("console");
 
-const productsJSON = path.join(__dirname, "../data/productsDataBase.json");
 
 const mainController = {
 
     index: async (req, res) => {        
         try {
-            let products = await db.Products.findAll({});
-            res.render("index", { products })
-        }
-        catch (err) {
+            let products = await db.Products.findAll();
+            res.render("index", { products : products })
+        } catch (err) {
 			res.render("404Found");
         }
 
