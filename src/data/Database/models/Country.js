@@ -1,14 +1,14 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Country = sequelize.define("Countrys", {
         id:{
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement: true,
             unique: true,
             allowNull: false,
         },
         country: {
-            type: dataTypes.STRING(75),
+            type: DataTypes.STRING(75),
             unique: true,
             allowNull: false
         }

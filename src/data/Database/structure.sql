@@ -3,7 +3,7 @@
 -- y la que sobre ese eschema itera  para insertar los registros.
 -- (siempre que uno de doble click en el schema se esta iterando alli)
 
--- CREATE DATABASE foofunnel;
+-- CREATE DATABASE foodfunnel;
 -- USE foodfunnel;
 
 

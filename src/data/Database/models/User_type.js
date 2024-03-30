@@ -1,14 +1,14 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const UserType = sequelize.define("Type_of_user", {
         id:{
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement: true,
             unique: true,
             allowNull: false,
         },
         user_type: {
-            type: dataTypes.STRING(50),
+            type: DataTypes.STRING(50),
             unique: true,
             allowNull: false
         }

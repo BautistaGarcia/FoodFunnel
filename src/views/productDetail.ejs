@@ -20,47 +20,50 @@
             </div>
             <ul class="text">
                 <div class="admin-section">
-                    <li class="edit-product">
-                        <p>Edit</p>
+                    
+                    <li>
+                        <i class="fa-solid fa-percent"></i>
+                        <p>
+                            <%= products.discount %> % OFF
+                        </p>
                     </li>
-                    <li class="delete-product">
-                        <p>Delete</p>
+                    <li>
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <p>04:42:02</p>
                     </li>
-                    <div class="product-offert-container">
-                        <li><i class="fa-solid fa-percent">
-                            </i>
-                            <p>
-                                <%= products.discount %> %
-                            </p>
-                        </li>
-                        <li><i class="fa-solid fa-stopwatch">
-
-                            </i>
-                            <p>04:42:02</p>
-                        </li>
-                        <li></li>
-                    </div>
                 </div>
-                <li>
-                    <%= products.name %>
-                </li>
-                <li>
-                    <%= products.description %>
-                </li>
-                <li><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
-                        class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
-                        class="fa-regular fa-star"></i>
-                    <span>0/5</span>
-                </li>
-                <li>
-                    <%= products.brand %>
-                </li>
-                <li>
-                    <%= products.location %>
-                </li>
-                <li class="addTo-order">
-                    <p>Add To Order</p>
-                </li>
+
+                    <div class="product-offert-container">
+                        <li class="edit-product">
+                            <p>Edit</p>
+                        </li>
+                        <li class="delete-product">
+                            <p>Delete</p>
+                        </li>
+                    </div>
+                <div class="productDescription">
+                    <li>
+                        <%= products.name %>
+                    </li>
+                    <li>
+                        <%= products.description %>
+                    </li>
+                    <li><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                            class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                            class="fa-regular fa-star"></i>
+                        <span>0/5</span>
+                    </li>
+                    <li>
+                        <%= products.brand %>
+                    </li>
+                    <li>
+                        <%= products.location %>
+                    </li>
+                    <li class="addTo-order">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <p>Add To Order</p>
+                    </li>
+                </div>
             </ul>
         </article>
         <section class="total-container">

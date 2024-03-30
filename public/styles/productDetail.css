@@ -25,10 +25,20 @@
     }
 }
 
+.productDescription {
+    display: flex;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
 .product-offert-container {
     display: flex;
     align-items: center;
-    
+
     li {
         display: flex;
     }
@@ -44,17 +54,15 @@ ul {
     align-items: flex-start;
     background: white;
     border-radius: 18px 18px 0 0;
+    box-shadow: inset 0 0 10px 0px gray;
+
 
 
     .addTo-order {
-        background-color: wheat;
-        padding: 10px;
-        font-size: 18px;
-        border-radius: 18px;
-    }
-
-    .payNow {
-        background-color: greenyellow;
+        display: flex;
+        background-color: yellow;
+        justify-content: space-evenly;
+        width: 200px;
         padding: 10px;
         font-size: 18px;
         border-radius: 18px;
@@ -66,19 +74,32 @@ ul {
     display: flex;
     justify-content: space-around;
 
-    .edit-product {
-        background-color: yellow;
-        padding: 10px;
-        font-size: 18px;
-        border-radius: 18px;
+    li {
+        display: flex;
+        background: #b52525;
+        padding: 5px;
+        border-radius: 8px;
+        color: wheat;
+        
+        i {
+            margin-right: 10px;
+        }
     }
 
-    .delete-product {
-        background-color: red;
-        padding: 10px;
-        font-size: 18px;
-        border-radius: 18px;
-    }
+}
+
+.edit-product {
+    background-color: yellow;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 18px;
+}
+
+.delete-product {
+    background-color: red;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 18px;
 }
 
 .total-container {

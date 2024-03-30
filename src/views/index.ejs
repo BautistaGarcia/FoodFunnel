@@ -16,14 +16,10 @@
                 <section class="main-container">
                         <div class="slider-wrapper">
                                 <div class="slider">
-                                        <img id="hero-img1" src="/img/hero-image-foodFunnel.jpg"
-                                                alt="">
-                                        <img id="hero-img2" src="/img/hero-image-foodFunnel.jpg"
-                                                alt="">
-                                        <img id="hero-img3" src="/img/hero-image-foodFunnel.jpg"
-                                                alt="">
-                                        <img id="hero-img4" src="/img/offer-FoodFunnel.jpg"
-                                                alt="">
+                                        <img id="hero-img1" src="/img/hero-image-foodFunnel.jpg" alt="">
+                                        <img id="hero-img2" src="/img/hero-image-foodFunnel.jpg" alt="">
+                                        <img id="hero-img3" src="/img/hero-image-foodFunnel.jpg" alt="">
+                                        <img id="hero-img4" src="/img/offer-FoodFunnel.jpg" alt="">
                                 </div>
                                 <div class="slider-nav">
                                         <a href="#hero-img1"></a>
@@ -37,7 +33,7 @@
 
                 <section class="second-container">
                         <h3 class="hotSale-tittle">What are you looking for?
-                                <i class="fa-solid fa-question" class="expland-offerts-benefits"></i>
+                                <i class="fa-solid fa-question" id="questionMark1" class="expland-offerts-benefits"></i>
                                 <p class="see-all-offerts">See more</p>
                         </h3>
                         <hr>
@@ -95,10 +91,16 @@
                                                         <span>beers</span>
                                                 </a>
                                         </article>
+                                        <article class="category-item">
+                                                <a href="/products/category/restaurants">
+                                                        <img src="/img/products/restaurant.jpg" alt="">
+                                                        <span>restaurants</span>
+                                                </a>
+                                        </article>
                                 </div>
                         </section>
                         <h3 class="hotSale-tittle">Hot sale
-                                <i class="fa-solid fa-question" class="expland-offerts-benefits"></i>
+                                <i class="fa-solid fa-question" id="questionMark2" class="expland-offerts-benefits"></i>
                                 <p class="see-all-offerts">See more</p>
                         </h3>
                         <hr>
@@ -138,7 +140,7 @@
                                 </div>
                         </section>
                         <h3 class="hotSale-tittle">Most Popular :
-                                <i class="fa-solid fa-question" class="expland-offerts-benefits"></i>
+                                <i class="fa-solid fa-question" id="questionMark3" class="expland-offerts-benefits"></i>
                                 <p class="see-all-offerts">See more</p>
                         </h3>
                         <hr>
@@ -164,7 +166,7 @@
                                                                 </a>
                                                         </div>
                                                 </article>
-                                                <% }) %>
+                                        <% }) %>
 
                                 </div>
                         </section>
@@ -172,35 +174,36 @@
 
                         <section class="promotion">
                                 <img src="/img/banner-food.jpg" alt="">
-                                <div class="expand-offert-banner">
+                                <div class="expand-offert-banner" id="expand-offert-banner1">
                                         <p>see more</p>
                                 </div>
                         </section>
 
                         <h3 class="hotSale-tittle">Restaurants :
-                                <i class="fa-solid fa-question" class="expland-offerts-benefits"></i>
+                                <i class="fa-solid fa-question" id="questionMark4" class="expland-offerts-benefits"></i>
                                 <p class="see-all-offerts">See more</p>
                         </h3>
                         <hr>
 
                         <section class="hotSale-carousel">
                                 <div class="overflow-container">
-                                        <% restaurantProducts.forEach(restaurantProduct=> { %>
+                                        <% products.forEach(product=> { %>
                                                 <article class="food-card">
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
-                                                                <a href="/products/productDetail/<%=restaurantProduct.id%>">
-                                                                        <p>$<%= restaurantProduct.price%> <span>
-                                                                                                <%=
-                                                                                                        restaurantProduct.discount%>
+                                                                <a href="/products/productDetail/<%=product.id%>">
+                                                                        <p>$<%= product.price%>
+                                                                                        <span>
+                                                                                                <%=product.discount%>
                                                                                                         %
-                                                                                        </span></p>
+                                                                                        </span>
+                                                                        </p>
                                                                         <span class="offer-info">
-                                                                                <%= restaurantProduct.name%>
+                                                                                <%= product.name%>
                                                                         </span>
                                                                         <a href="#" class="restaurant-adress">
-                                                                                <%= restaurantProduct.brand%>
-                                                                                        <%= restaurantProduct.location%>
+                                                                                <%= product.brand%>
+                                                                                        <%= product.location%>
                                                                         </a>
                                                                 </a>
                                                         </div>
@@ -212,9 +215,25 @@
 
 
                 </section>
+                <ul class="modalWindow" id="modalWindow">
+                        <div class="closeModal" id="closeModal">x</div>
+                        <li><i class="fa-light fa-percent"></i></li>
+                        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, ipsa? Alias esse veniam, eum
+                                odit, eaque, nam itaque nemo provident quo cum cupiditate. Vero natus nihil odit,
+                                suscipit molestiae nesciunt?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, laboriosam!</li>
+                </ul>
+
+                <ul class="offertModalWindow" id="offertModalWindow1">
+                        <div class="closeModal" id="closeModal">x</div>
+                        <li class="image-container-window-offert"><img src="/img/banner-food.jpg" alt=""></li>
+                        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, ipsa? Alias esse veniam, eum
+                                odit, eaque, nam itaque nemo provident quo cum cupiditate. Vero natus nihil odit,
+                                suscipit molestiae nesciunt?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, laboriosam!</li>
+                </ul>
         </body>
         <%- include('./partials/footer') %>
-                <script>
-                </script>
+                <script src="/scripts/index.js"></script>
 
 </html>

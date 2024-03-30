@@ -1,14 +1,14 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const State = sequelize.define("States", {
         id:{
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement: true,
             unique: true,
             allowNull: false,
         },
         location: {
-            type: dataTypes.VARCHAR(150),
+            type: DataTypes.STRING,
             allowNull: false
         }
     },

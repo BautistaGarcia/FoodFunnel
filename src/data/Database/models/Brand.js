@@ -1,14 +1,14 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Brand = sequelize.define("Brands", {
         id:{
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement: true,
             unique: true,
             allowNull: false,
         },
         brand_name: {
-            type: dataTypes.VARCHAR(100),
+            type: DataTypes.STRING,
             unique: true,
             allowNull: false
         }

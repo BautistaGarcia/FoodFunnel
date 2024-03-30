@@ -40,14 +40,14 @@ h3 {
             position: absolute;
             bottom: 1.25rem;
             left: 50%;
-            transform: translateX( -50% );
+            transform: translateX(-50%);
             z-index: 1;
 
             a {
                 width: 0.5rem;
                 height: 0.5rem;
                 border-radius: 50%;
-                background-color:#fff;
+                background-color: #fff;
                 opacity: 0.75;
                 transition: opacity ease 250ms;
 
@@ -84,9 +84,10 @@ h3 {
 
 .flex-slider {
     display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
+    box-shadow: inset 0 0 13px 1px gray;
+    border-radius: 18px;
+    margin: 1rem auto 1rem auto;
+    justify-content: center;
 
 
     .grid-item {
@@ -147,7 +148,7 @@ h3 {
     overflow-x: scroll;
 
     .overflow-container {
-        width: 200%;
+        width: 1000px;
         overflow: hidden;
         display: flex;
 
@@ -159,7 +160,7 @@ h3 {
             position: relative;
             display: flex;
             border-radius: 12px;
-            box-shadow: 0px 0px 5px 1px lightgray;
+            box-shadow: 0px 0px 13px 0px gray;
             flex-direction: column;
             justify-content: space-around;
 
@@ -196,22 +197,27 @@ h3 {
                 color: black;
             }
 
-            .restaurant-adress {
-                font-size: 18px;
-                color: gray;
-            }
+            .product-image-container {
+                padding: 10px;
 
-            .btn-pay-object {
-                width: 90%;
-                background: black;
-                padding: 5px;
-                margin: 15px auto 15px auto;
-                text-align: center;
-                border-radius: 18px;
+                .restaurant-adress {
+                    font-size: 18px;
+                    color: gray;
+                }
 
-                a {
-                    font-size: 24px;
-                    color: white;
+                .btn-pay-object {
+                    width: 90%;
+                    background: black;
+                    padding: 5px;
+                    margin: 15px auto 15px auto;
+                    text-align: center;
+                    border-radius: 18px;
+                    box-shadow: inset 0 0 10px 3px white;
+
+                    a {
+                        font-size: 24px;
+                        color: white;
+                    }
                 }
             }
 
@@ -227,6 +233,74 @@ h3 {
         }
     }
 }
+
+
+/*  MODAL WINDOWS */
+
+
+.modalWindow {
+    display: none;
+    position: fixed;
+    top: 25%;
+    right: 5%;
+    width: 90%;
+    height: 50%;
+    padding: 25px;
+    background-color: bisque;
+    box-shadow: inset 0 0 15px 0px #303003;
+    flex-direction: column;
+    z-index: 999;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: white 3px solid;
+
+}
+
+.closeModal {
+    position: fixed;
+    display: flex;
+    top: 27%;
+    right: 9%;
+    border: 1px solid;
+    width: 20px;
+    border-radius: 50%;
+    font-size: 18px;
+    justify-content: center;
+}
+
+
+.offertModalWindow {
+    display: none;
+    position: fixed;
+    top: 25%;
+    right: 5%;
+    width: 90%;
+    height: 50%;
+    padding: 25px;
+    background-color: bisque;
+    box-shadow: inset 0 0 15px 0px #303003;
+    flex-direction: column;
+    z-index: 999;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: white 3px solid;
+
+    .image-container-window-offert {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+        }
+    }
+
+}
+
+/*  MEDIA QUERIES */
+
 
 @media (min-width:425px) {
 
@@ -283,3 +357,8 @@ h3 {
         }
     }
 }
+
+
+
+
+/* Javascript classes to add  */

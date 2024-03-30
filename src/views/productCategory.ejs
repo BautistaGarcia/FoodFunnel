@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/category.css">
+
+    <%- include('./partials/head') %>
     <title>Document</title>
 </head>
-<body>
-    <% filteredProducts.forEach(categoryProduct => { %>
+<%- include('./partials/header') %>
 
-        <%=  categoryProduct.name %>
-        <%=  categoryProduct.discount %>
-        <%=  categoryProduct.description %>
-        <br>
-        <% }) %>
+<body>
+    <h2>category items</h2>
+    <section class="hotSale-carousel">
+        <div class="overflow-container">
+                <% filteredProducts.forEach(categoryProduct=> { %>
+                        <article class="food-card">
+                                <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                <div class="product-image-container">
+                                        <a href="/products/productDetail/<%=categoryProduct.id%>">
+                                                <p>$<%= categoryProduct.price%> <span>
+                                                                        <%= categoryProduct.discount%>%
+                                                                </span></p>
+                                                <span class="offer-info">
+                                                        <%= categoryProduct.name%>
+                                                </span>
+                                                <br>
+                                                <a href="#" class="restaurant-adress">
+                                                        <%= categoryProduct.brand%>
+                                                                <%= categoryProduct.location%>
+                                                </a>
+                                        </a>
+                                </div>
+                        </article>
+                        <% }) %>
+
+        </div>
+</section>
 </body>
+<%- include('./partials/footer') %>
+
+
 </html>

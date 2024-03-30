@@ -1,35 +1,35 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Product = sequelize.define("Products", {
         id:{
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement: true,
             unique: true,
             allowNull: false,
         },
         name: {
-            type: dataTypes.STRING(50),
+            type: DataTypes.STRING(50),
             allowNull: false,
             unique: true
         },
         description: {
-            type: dataTypes.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         quantity: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         price: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         discount: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             defaultValue: 0
         },
         image: {
-            type: dataTypes.STRING(255)
+            type: DataTypes.STRING(255)
         }
     },
     {

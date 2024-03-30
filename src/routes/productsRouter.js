@@ -13,6 +13,10 @@ router.get('/productDetail/:id', productsController.productDetail);
 
 router.get('/all', productsController.allProducts);
 
+
+// Buscar un producto
+router.get('/search', productsController.search);
+
 router.get('/create',authMiddleware.admin , productsController.create);
 router.post('/create', productsController.processCreate);
 

@@ -1,14 +1,14 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Category = sequelize.define("Categorys", {
         id:{
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement: true,
             unique: true,
             allowNull: false,
         },
         category: {
-            type: dataTypes.STRING(100),
+            type: DataTypes.STRING(100),
             unique: true,
             allowNull: false
         }

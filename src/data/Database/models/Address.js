@@ -1,26 +1,26 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Address = sequelize.define("Address", {
         id:{
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement: true,
             unique: true,
             allowNull: false,
         },
         address_id: {
-            type: dataTypes.VARCHAR(150),
+            type: DataTypes.STRING,
             allowNull: false
         }
     },
     {
-        tableName: "Address",
+        tableName: "address",
         timestamps: false
     })
 
     Address.associate = function(models){
         Address.hasMany(models.Products, {
             as: "products",
-            foreignKey: "Address_id"
+            foreignKey: "address_id"
         })
     }
     return Address
