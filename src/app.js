@@ -56,6 +56,11 @@ const productsRouter = require("./routes/productsRouter");
 app.use("/products", productsRouter);
 // 
 
+// admin
+const adminRouter = require("./routes/adminRouter");
+app.use("/admin", adminRouter);
+// 
+
 //************************************* Listen Server *************************************\\
 const port = process.env.PORT || 3010;
 

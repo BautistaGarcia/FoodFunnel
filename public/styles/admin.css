@@ -1,0 +1,22 @@
+.aside-menu {
+    font-size: 28px;
+    list-style: none;
+    background-color: wheat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 25vw;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.admin-image-container {
+    width: 25vw;
+    
+    img {
+        width: 100%;
+    }
+}

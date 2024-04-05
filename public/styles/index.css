@@ -148,7 +148,8 @@ h3 {
     overflow-x: scroll;
 
     .overflow-container {
-        width: 1000px;
+        padding-right: 215px;
+        width: 200vw;
         overflow: hidden;
         display: flex;
 
@@ -267,6 +268,7 @@ h3 {
     border-radius: 50%;
     font-size: 18px;
     justify-content: center;
+    cursor: pointer
 }
 
 
@@ -358,7 +360,10 @@ h3 {
     }
 }
 
+@media (min-width: 1024px) {
+    .promotion {
+        height: 40vh;
+    }
+}
 
 
-
-/* Javascript classes to add  */

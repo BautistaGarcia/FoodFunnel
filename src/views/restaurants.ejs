@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/restaurants.css">
+    <title>Restaurants</title>
+</head>
+
+<body>
+    <p>mc donnalds</p>
+    <section class="hotSale-carousel">
+        <div class="overflow-container">
+            <% mcDonaldsProducts.forEach(product=> { %>
+                <article class="food-card">
+                    <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                    <div class="product-image-container">
+                        <a href="/products/productDetail/<%=product.id%>">
+                            <p>$<%= product.price%>
+                                    <span>
+                                        <%=product.discount%>
+                                            %
+                                    </span>
+                            </p>
+                            <span class="offer-info">
+                                <%= product.name%>
+                            </span>
+                            <a href="#" class="restaurant-adress">
+                                <%= product.brand%>
+                                    <%= product.location%>
+                            </a>
+                        </a>
+                    </div>
+                </article>
+                <% }) %>
+
+        </div>
+    </section>
+    <p>Tomasso</p>
+    <section class="hotSale-carousel">
+        <div class="overflow-container">
+            <% tomassoProducts.forEach(product=> { %>
+                <article class="food-card">
+                    <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                    <div class="product-image-container">
+                        <a href="/products/productDetail/<%=product.id%>">
+                            <p>$<%= product.price%>
+                                    <span>
+                                        <%=product.discount%>
+                                            %
+                                    </span>
+                            </p>
+                            <span class="offer-info">
+                                <%= product.name%>
+                            </span>
+                            <a href="#" class="restaurant-adress">
+                                <%= product.brand%>
+                                    <%= product.location%>
+                            </a>
+                        </a>
+                    </div>
+                </article>
+                <% }) %>
+
+        </div>
+    </section>
+    <p>Dean and Dennis</p>
+    <section class="hotSale-carousel">
+        <div class="overflow-container">
+            <% deanAndDennisProducts.forEach(product=> { %>
+                <article class="food-card">
+                    <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                    <div class="product-image-container">
+                        <a href="/products/productDetail/<%=product.id%>">
+                            <p>$<%= product.price%>
+                                    <span>
+                                        <%=product.discount%>
+                                            %
+                                    </span>
+                            </p>
+                            <span class="offer-info">
+                                <%= product.name%>
+                            </span>
+                            <a href="#" class="restaurant-adress">
+                                <%= product.brand%>
+                                    <%= product.location%>
+                            </a>
+                        </a>
+                    </div>
+                </article>
+                <% }) %>
+
+        </div>
+    </section>
+    <p>shawarmi</p>
+    <section class="hotSale-carousel">
+        <div class="overflow-container">
+            <% shawarmiProducts.forEach(product=> { %>
+                <article class="food-card">
+                    <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                    <div class="product-image-container">
+                        <a href="/products/productDetail/<%=product.id%>">
+                            <p>$<%= product.price%>
+                                    <span>
+                                        <%=product.discount%>
+                                            %
+                                    </span>
+                            </p>
+                            <span class="offer-info">
+                                <%= product.name%>
+                            </span>
+                            <a href="#" class="restaurant-adress">
+                                <%= product.brand%>
+                                    <%= product.location%>
+                            </a>
+                        </a>
+                    </div>
+                </article>
+                <% }) %>
+        </div>
+    </section>
+</body>
+
+</html>

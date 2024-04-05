@@ -35,10 +35,10 @@
 
                     <div class="product-offert-container">
                         <li class="edit-product">
-                            <p>Edit</p>
+                            <a href="/edit/<%=products.id%>">Edit</a>
                         </li>
                         <li class="delete-product">
-                            <p>Delete</p>
+                            <a href="/delete/<%=products.id%>">Delete</a>
                         </li>
                     </div>
                 <div class="productDescription">
@@ -53,11 +53,12 @@
                             class="fa-regular fa-star"></i>
                         <span>0/5</span>
                     </li>
+                    
                     <li>
-                        <%= products.brand %>
+                        <%= products.brand.brand_name %>
                     </li>
                     <li>
-                        <%= products.location %>
+                        <%= products.state.location %>
                     </li>
                     <li class="addTo-order">
                         <i class="fa-solid fa-cart-plus"></i>

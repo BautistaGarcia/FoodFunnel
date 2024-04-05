@@ -92,7 +92,7 @@
                                                 </a>
                                         </article>
                                         <article class="category-item">
-                                                <a href="/products/category/restaurants">
+                                                <a href="/products/restaurants">
                                                         <img src="/img/products/restaurant.jpg" alt="">
                                                         <span>restaurants</span>
                                                 </a>
@@ -107,7 +107,7 @@
                         <section class="hotSale-carousel">
                                 <div class="overflow-container">
 
-                                        <% products.forEach(product=> { %>
+                                        <% offerts.forEach(product=> { %>
                                                 <article class="food-card">
                                                         <div class="offer-timing-container">
                                                                 <i class="fa-solid fa-stopwatch"></i>
@@ -115,8 +115,7 @@
                                                         </div>
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
-                                                                <a
-                                                                        href="/products/productDetail/<%= product.id%>">
+                                                                <a href="/products/productDetail/<%= product.id%>">
                                                                         <p>$<%= product.price%> <span>
                                                                                                 <%=product.price%>
                                                                                         </span>
@@ -131,7 +130,9 @@
                                                                         </a>
                                                                 </a>
                                                                 <div class="btn-pay-object">
-                                                                        <a href="#">Buy Now!</a>
+                                                                        <a
+                                                                                href="/products/productDetail/<%= product.id%>">Buy
+                                                                                Now!</a>
                                                                 </div>
                                                         </div>
                                                 </article>
@@ -184,9 +185,10 @@
                         </h3>
                         <hr>
 
+                        <p>mc donnalds</p>
                         <section class="hotSale-carousel">
                                 <div class="overflow-container">
-                                        <% products.forEach(product=> { %>
+                                        <% mcDonaldsProducts.forEach(product=> { %>
                                                 <article class="food-card">
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
@@ -207,12 +209,94 @@
                                                                 </a>
                                                         </div>
                                                 </article>
-                                                <% }) %>
+                                        <% }) %>
 
                                 </div>
                         </section>
+                        <p>Tomasso</p>
+                        <section class="hotSale-carousel">
+                                <div class="overflow-container">
+                                        <% tomassoProducts.forEach(product=> { %>
+                                                <article class="food-card">
+                                                        <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                                        <div class="product-image-container">
+                                                                <a href="/products/productDetail/<%=product.id%>">
+                                                                        <p>$<%= product.price%>
+                                                                                        <span>
+                                                                                                <%=product.discount%>
+                                                                                                        %
+                                                                                        </span>
+                                                                        </p>
+                                                                        <span class="offer-info">
+                                                                                <%= product.name%>
+                                                                        </span>
+                                                                        <a href="#" class="restaurant-adress">
+                                                                                <%= product.brand%>
+                                                                                        <%= product.location%>
+                                                                        </a>
+                                                                </a>
+                                                        </div>
+                                                </article>
+                                        <% }) %>
 
+                                </div>
+                        </section>
+                        <p>Dean and Dennis</p>
+                        <section class="hotSale-carousel">
+                                <div class="overflow-container">
+                                        <% deanAndDennisProducts.forEach(product=> { %>
+                                                <article class="food-card">
+                                                        <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                                        <div class="product-image-container">
+                                                                <a href="/products/productDetail/<%=product.id%>">
+                                                                        <p>$<%= product.price%>
+                                                                                        <span>
+                                                                                                <%=product.discount%>
+                                                                                                        %
+                                                                                        </span>
+                                                                        </p>
+                                                                        <span class="offer-info">
+                                                                                <%= product.name%>
+                                                                        </span>
+                                                                        <a href="#" class="restaurant-adress">
+                                                                                <%= product.brand%>
+                                                                                        <%= product.location%>
+                                                                        </a>
+                                                                </a>
+                                                        </div>
+                                                </article>
+                                        <% }) %>
 
+                                </div>
+                        </section>
+                        <p>shawarmi</p>
+                        <section class="hotSale-carousel">
+                                <div class="overflow-container">
+                                        <% shawarmiProducts.forEach(product=> { %>
+                                                <article class="food-card">
+                                                        <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                                                        <div class="product-image-container">
+                                                                <a href="/products/productDetail/<%=product.id%>">
+                                                                        <p>$<%= product.price%>
+                                                                                        <span>
+                                                                                                <%=product.discount%>
+                                                                                                        %
+                                                                                        </span>
+                                                                        </p>
+                                                                        <span class="offer-info">
+                                                                                <%= product.name%>
+                                                                        </span>
+                                                                        <a href="#" class="restaurant-adress">
+                                                                                <%= product.brand%>
+                                                                                        <%= product.location%>
+                                                                        </a>
+                                                                </a>
+                                                        </div>
+                                                </article>
+                                        <% }) %>
+
+                                </div>
+                        </section>
                 </section>
                 <ul class="modalWindow" id="modalWindow">
                         <div class="closeModal" id="closeModal">x</div>

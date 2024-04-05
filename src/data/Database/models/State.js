@@ -20,8 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     State.associate = function(models){
         State.hasMany(models.Products, {
             as: "products",
-            foreignKey: "state"
+            foreignKey: "location_id"
         })
     }
+    
     return State
 }

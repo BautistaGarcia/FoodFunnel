@@ -8,22 +8,21 @@ app.use(express.json());
 const db = require("../data/database/models");
 const { log } = require("console");
 const { Op, where } = require("sequelize");
-const productsJSON = path.join(__dirname, "../data/productsDataBase.json");
+//-->  const productsJSON = path.join(__dirname, "../data/productsDataBase.json");
 
 const productsController = {
 
     productDetail: async (req, res) => {
         try {
-            let products = await db.Products.findByPk(rea.params.id, {
+            let products = await db.Products.findByPk(req.params.id, {
                 include: [
-                    { model: db.Brands, attributes: ["brand_name"] },
-                    { association: "location" },
-                    { association: "category" },
-                    { association: db.Brands, attributes: ["brand_name"] },
+                    // con el association se utiliza primero el tableName del modelo y luego el attributo o campo donde esta el nombre x ejemplo
+                    { association: "state", attributes: ["location"] },
+                    { association: "brand", attributes: ["brand_name"] },
                 ],
             });
 
-            res.render("productDetail.ejs");
+            res.render("productDetail.ejs", {products});
         } catch (err) {
             res.render("404Found.ejs");
         }
@@ -203,23 +202,70 @@ const productsController = {
     allProducts: async (req, res) => {
         try {
             let products = await db.Products.findAll();
-            res.render("allProducts.ejs", { products })            
+            res.render("allProducts.ejs", { products })
         } catch (err) {
-			res.render("404Found.ejs");
+            res.render("404Found.ejs");
         }
     },
 
     category: async (req, res) => {
         try {
-            let category = await db.Products.findByPk({
+            let category = await db.Products.findAll({
                 where: {
-                    category: { name: req.params.name }
+                    "$category.category_name$": req.params.name
+                    // para acceder a la propiedad de una tabla relacionada a productos hacen falta escribir la clave en string y entre dos signos $ aca va la clave $
                 },
-                include: [{ association: "category" }],
+                include: [{ association: "category", attributes: ["category_name"] }],
             });
             res.render("productCategory.ejs", { category });
         } catch (err) {
-			res.render("404Found.ejs");
+            res.render("404Found.ejs");
+        }
+    },
+
+    restaurants: async (req, res) => {
+        try {
+            let products = await db.Products.findAll();
+            let offerts = await db.Products.findAll({
+                where: {
+                    discount: {
+                        [Op.ne]: 0,
+                    }
+                }
+            });
+            let mcDonaldsProducts = await db.Products.findAll({
+                where: {
+                    brand_id: {
+                        [Op.eq]: 1,
+                    }
+                }
+            });
+            let tomassoProducts = await db.Products.findAll({
+                where: {
+                    brand_id: {
+                        [Op.eq]: 2,
+                    }
+                }
+            });
+            let deanAndDennisProducts = await db.Products.findAll({
+                where: {
+                    brand_id: {
+                        [Op.eq]: 3,
+                    }
+                }
+            });
+            let shawarmiProducts = await db.Products.findAll({
+                where: {
+                    brand_id: {
+                        [Op.eq]: 4,
+                    }
+                }
+            });
+
+            res.render("restaurants", { products, offerts, mcDonaldsProducts, tomassoProducts, deanAndDennisProducts, shawarmiProducts })
+        } catch (err) {
+            console.log(err)
+            res.render("404Found");
         }
     },
 
@@ -227,96 +273,96 @@ const productsController = {
         try {
             res.render("order.ejs");
         } catch (err) {
-			res.render("404Found.ejs");
+            res.render("404Found.ejs");
         }
     },
-}
 
     /*              CRUD JSON             
     
-    productDetail: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
+    
+productDetail: (req, res) => {
+    const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
 
-        let productId = req.params.id
-        let definedProduct = products.find(product => {
-            return product.id == productId;
-        })
+    let productId = req.params.id
+    let definedProduct = products.find(product => {
+        return product.id == productId;
+    })
+    
+    if (definedProduct) {
+        res.render("productDetail.ejs", { products: definedProduct })
+    } else {
+        res.send("404Found.ejs")
+    }
+},
 
-        if (definedProduct) {
-            res.render("productDetail.ejs", { products: definedProduct })
-        } else {
-            res.send("404Found.ejs")
-        }
-    },
-
-    create: (req, res) => {
+create: (req, res) => {
         const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
 
         res.render("productCreate.ejs", { products })
     },
 
-    processCreate: (req, res) => {
+        processCreate: (req, res) => {
 
-        const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
+            const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
 
-        const newProduct = {
-            id: products[products.length - 1].id + 1,
-            name: req.body.name,
-            description: req.body.description,
-            // falta la imagen
-            quantity: req.body.quantity,
-            price: req.body.price,
-            discount: req.body.discount,
-            brand: req.body.brand,
-            address: req.body.address,
-            category: req.body.category,
-            location: req.body.location
-        }
+            const newProduct = {
+                id: products[products.length - 1].id + 1,
+                name: req.body.name,
+                description: req.body.description,
+                // falta la imagen
+                quantity: req.body.quantity,
+                price: req.body.price,
+                discount: req.body.discount,
+                brand: req.body.brand,
+                address: req.body.address,
+                category: req.body.category,
+                location: req.body.location
+            }
 
-        products.push(newProduct);
+            products.push(newProduct);
+            
+            fs.writeFileSync(productsJSON, JSON.stringify(products, null, " "));
 
-        fs.writeFileSync(productsJSON, JSON.stringify(products, null, " "));
+            res.redirect("/products/productDetail/" + newProduct.id)
+        },
 
-        res.redirect("/products/productDetail/" + newProduct.id)
-    },
+        edit: (req, res) => {
+            res.render("allProducts.ejs")
+            },
 
-    edit: (req, res) => {
-        res.render("allProducts.ejs")
-    },
+            processEdit: (req, res) => {
+                res.render("allProducts.ejs")
+                },
 
-    processEdit: (req, res) => {
-        res.render("allProducts.ejs")
-    },
+                destroy: (req, res) => {
+                        res.render("allProducts.ejs")
+                    },
 
-    destroy: (req, res) => {
-        res.render("allProducts.ejs")
-    },
+                        search: (req, res) => {
+                            const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
+                            res.render("search.ejs", { productsSearch: products })
+                        },
 
-    search: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
-        res.render("search.ejs", { productsSearch: products })
-    },
+                            allProducts: (req, res) => {
+                                const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
+                                res.render("allProducts.ejs", { products })
+                            },
 
-    allProducts: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
-        res.render("allProducts.ejs", { products })
-    },
+                                category: (req, res) => {
+                                    const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
 
-    category: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
+                                    var filteredProducts = products.filter(function (product) {
+                                        return product.category === req.params.category;
+                                    });
+                                    
+                                    res.render("productCategory.ejs", { filteredProducts })
+                                },
+                                
+                                order: (req, res) => {
+                                        res.render("order.ejs")
+                                    },
 
-        var filteredProducts = products.filter(function (product) {
-            return product.category === req.params.category;
-        });
-
-        res.render("productCategory.ejs", { filteredProducts })
-    },
-
-    order: (req, res) => {
-        res.render("order.ejs")
-    },
-
+                                    CRUD JSON */
 }
-             CRUD JSON             */ 
 
 module.exports = productsController;

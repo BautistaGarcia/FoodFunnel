@@ -24,7 +24,9 @@ router.post('/edit/:id', productsController.processEdit);
 
 router.delete('/destroy/:id',authMiddleware.admin , productsController.destroy);
 
-router.get('/category/:category', productsController.category);
+router.get('/category/:name', productsController.category);
+
+router.get('/restaurants', productsController.restaurants);
 
 router.get('/order', productsController.order);
 

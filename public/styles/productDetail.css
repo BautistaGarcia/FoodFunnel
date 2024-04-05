@@ -16,10 +16,12 @@
     background-color: rgba(0, 0, 0, 0.4);
 
     .image-container {
+        max-width: 769px;
         width: 100vw;
         margin: auto;
 
         img {
+            border-radius: 10px;
             width: 100%;
         }
     }
@@ -45,6 +47,7 @@
 }
 
 ul {
+    max-width: 769px;
     width: 100%;
     height: 50vh;
     margin: auto;
@@ -80,7 +83,7 @@ ul {
         padding: 5px;
         border-radius: 8px;
         color: wheat;
-        
+
         i {
             margin-right: 10px;
         }
@@ -110,7 +113,7 @@ ul {
     position: fixed;
     bottom: 0px;
     background: wheat;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 15px;
 
@@ -136,4 +139,25 @@ ul {
             color: rgb(255, 206, 114);
         }
     }
+}
+
+@media (min-width:769px) {
+
+    .single-card {
+        background-color: whitesmoke;
+    }
+
+    .total-container {
+        .payment-container {
+            width: 250px;
+            
+        }
+    }
+
+}
+
+@media (min-width:1024px) {
+
+   
+
 }
