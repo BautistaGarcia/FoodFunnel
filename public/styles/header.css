@@ -28,7 +28,8 @@ header {
     z-index: 999;
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.1);
+    border-left: 1px solid black;
+    background: white;
     backdrop-filter: blur(5px);
     width: 100%;
     height: 100vh;
@@ -36,43 +37,103 @@ header {
     top: 10vh;
     right: -100%;
     list-style: none;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
-    li {
-        width: 90%;
-        height: 25%;
-        margin: auto;
-        font-size: 28px;
+    .links-container-burguerMenu {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
 
-        a {
-            color: white;
-            padding: 5px;
-            background: rgba(255, 255, 255, 0.1);
+        .links-burguerMenu {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-right: 1rem;
 
+            &:hover {
+                background-color: #00000015;
+            }
+
+            a {
+                height: 50px;
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                color: black;
+            }
         }
     }
 
     .closeBMBtn {
         position: absolute;
-        top: 0;
-        right: 0;
-        padding: 5px;
+        top: 0.5rem;
+        right: 0.5rem;
+        margin: 5px;
         width: auto;
         height: auto;
-        
+
     }
 
-    .image-container {
-        width: 90%;
+    .burguerMenu-firstSection {
+        display: flex;
+        width: 100%;
+        padding: 1rem;
+        background: #b52525;
+        color: wheat;
+        font-size: 18px;
+        flex-direction: column;
+        align-items: flex-end;
 
-        img {
+        .image-container {
+            display: flex;
+            width: 75px;
+            height: 75px;
+            margin: 15px;
+
+            img {
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        .email-burguerMenu {
             width: 100%;
-            border-radius: 50%;
-            max-height: 5vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            align-items: flex-end;
+
+            p {
+                display: flex;
+                justify-content: flex-end;
+                width: 90%;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            span {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .chevronBtn-burguerMenu {
+                position: absolute;
+                left: 0;
+                cursor: pointer;
+            }
+        }
+
+        .userDescription-burguerMenu {
+            display: none;
+            flex-direction: column;
+            padding: 1rem 0 0 0;
+            overflow: hidden;
+            animation: 1s userDescriptionAnimation linear;
         }
     }
 }
@@ -90,5 +151,19 @@ header {
 
     .burguerMenu {
         width: 25%;
+    }
+}
+
+@keyframes userDescriptionAnimation {
+    0% {
+        height: 0;
+    }
+
+    50% {
+        height: 50px;
+    }
+
+    100% {
+        height: 100px;
     }
 }

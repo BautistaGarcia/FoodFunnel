@@ -5,7 +5,7 @@ const app = express();
 const fs = require("fs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-const db = require("../data/database/models");
+const db = require("../data/Database/models");
 const { log } = require("console");
 const { Op, where } = require("sequelize");
 //-->  const productsJSON = path.join(__dirname, "../data/productsDataBase.json");
@@ -35,13 +35,14 @@ const productsController = {
             let availableCategorys = await db.Categorys.findAll();
             let availableStates = await db.States.findAll();
 
-
             res.render("productCreate.ejs", {
                 availablebrands,
                 availableCategorys,
                 availableStates,
             });
         } catch (err) {
+            console.log(err)
+
             res.render("404Found.ejs");
         }
     },
@@ -202,7 +203,14 @@ const productsController = {
     allProducts: async (req, res) => {
         try {
             let products = await db.Products.findAll();
-            res.render("allProducts.ejs", { products })
+            let offerts = await db.Products.findAll({
+                where: {
+                    discount: {
+                        [Op.ne]: 0,
+                    }
+                }
+            });
+            res.render("allProducts.ejs", { products , offerts })
         } catch (err) {
             res.render("404Found.ejs");
         }

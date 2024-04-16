@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aside</title>
+</head>
+<aside class="burguerMenu" id="burguerMenu">
+    <li class="closeBMBtn"><i class="fa-solid fa-x" id="closeBMBtn"></i></li>
+    <div class="burguerMenu-firstSection">
+
+        <a href="/users/profile/" class="image-container">
+            <img src="/img/foto-presentacion.jpg" alt="">
+        </a>
+        <div class="email-burguerMenu" id="email-burguerMenu">
+            <p><%= user.first_name %></p>
+            <span> <%= user.email %></span>
+        </div>
+    </div>
+    <li><a href="/">Home</a></li>
+    <li><a href="/order">Order</a></li>
+    <li><a href="/users/login">Login</a></li>
+    <li><a href="/users/register">register</a></li>
+    <li><a href="/">Log Out</a></li>
+</aside>
+<script src="/scripts/aside.js"></script>
+</html>

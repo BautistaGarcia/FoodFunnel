@@ -6,7 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/productDetail.css">
     <%- include('./partials/head') %>
-        <title>Document</title>
+        <title>Product Detail</title>
+        <script  type="module">
+            import { io } from 'http://cdn.socket.io/4.3.2/socket.io.esm.min.js';
+
+            const socket = io();
+
+            console.log(socket);
+            const form = document.getElementById('form');
+            const input = document.getElementById('input');
+            const messagesUl = document.getElementById('messages');
+
+            socket.on('chat message', (msg) => {
+                const item = `<li>${msg}</li>`;
+                messagesUl.insertAdjacentHTML('beforeend', item)
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+
+                if (input.value) {
+                    socket.emit('chat message', input.value)
+                    input.value = ''
+                }
+            });
+        </script>
 </head>
 <%- include('./partials/header') %>
 
@@ -20,7 +44,7 @@
             </div>
             <ul class="text">
                 <div class="admin-section">
-                    
+
                     <li>
                         <i class="fa-solid fa-percent"></i>
                         <p>
@@ -33,14 +57,14 @@
                     </li>
                 </div>
 
-                    <div class="product-offert-container">
-                        <li class="edit-product">
-                            <a href="/edit/<%=products.id%>">Edit</a>
-                        </li>
-                        <li class="delete-product">
-                            <a href="/delete/<%=products.id%>">Delete</a>
-                        </li>
-                    </div>
+                <div class="product-offert-container">
+                    <li class="edit-product">
+                        <a href="/edit/<%=products.id%>">Edit</a>
+                    </li>
+                    <li class="delete-product">
+                        <a href="/delete/<%=products.id%>">Delete</a>
+                    </li>
+                </div>
                 <div class="productDescription">
                     <li>
                         <%= products.name %>
@@ -53,7 +77,7 @@
                             class="fa-regular fa-star"></i>
                         <span>0/5</span>
                     </li>
-                    
+
                     <li>
                         <%= products.brand.brand_name %>
                     </li>
@@ -67,6 +91,13 @@
                 </div>
             </ul>
         </article>
+        <section id="chat">
+            <ul id="messages"></ul>
+            <form id="form">
+                <input type="text" name="message" id="input" placeholder="Type a message" autocomplete="off">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
         <section class="total-container">
             <span class="total">Total
                 <span>$<%= products.price %>
@@ -74,7 +105,8 @@
                 </span>
             </span>
 
-            <div class="payment-container">
+
+            <div class="payment-container pointer">
                 <i class="fa-solid fa-bag-shopping"></i>
                 <p>Buy it now</p>
             </div>

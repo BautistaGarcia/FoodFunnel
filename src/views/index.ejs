@@ -14,7 +14,7 @@
 
         <body>
                 <section class="main-container">
-                        <div class="slider-wrapper">
+                        <div class="slider-wrapper property-TNotSelect">
                                 <div class="slider">
                                         <img id="hero-img1" src="/img/hero-image-foodFunnel.jpg" alt="">
                                         <img id="hero-img2" src="/img/hero-image-foodFunnel.jpg" alt="">
@@ -26,89 +26,98 @@
                                         <a href="#hero-img2"></a>
                                         <a href="#hero-img3"></a>
                                         <a href="#hero-img4"></a>
-
                                 </div>
                         </div>
                 </section>
 
                 <section class="second-container">
-                        <h3 class="hotSale-tittle">What are you looking for?
-                                <i class="fa-solid fa-question" id="questionMark1" class="expland-offerts-benefits"></i>
-                                <p class="see-all-offerts">See more</p>
+                        <h3 class="hotSale-tittle property-TNotSelect">What are you looking for?
+                                <i class="fa-solid fa-question pointer" id="questionMark1"
+                                        class="expland-offerts-benefits"></i>
                         </h3>
-                        <hr>
 
                         <section class="flex-slider">
                                 <div class="grid-item">
                                         <article class="category-item">
                                                 <a href="/products/category/burguer">
                                                         <img src="/img/products/Hamburguesa.jpg" alt="">
-                                                        <span>Burgers</span>
                                                 </a>
+                                                <span>Burgers</span>
                                         </article>
 
                                         <article class="category-item">
                                                 <a href="/products/category/ice-cream">
                                                         <img src="/img/products/helados.jpg" alt="">
-                                                        <span>Ice cream</span>
                                                 </a>
+                                                <span>Ice cream</span>
 
                                         </article>
                                         <article class="category-item">
                                                 <a href="/products/category/coffe">
                                                         <img src="/img/products/coffe.jpg" alt="">
-                                                        <span>coffe</span>
                                                 </a>
+                                                <span>coffe</span>
 
                                         </article>
                                         <article class="category-item">
                                                 <a href="/products/category/pizza">
                                                         <img src="/img/products/pizza.jpg" alt="">
-                                                        <span>Pizza</span>
                                                 </a>
+                                                <span>Pizza</span>
                                         </article>
                                         <article class="category-item">
-                                                <a href="/products/category/noodles">
+                                                <a href="/products/category/noodles.jpg">
                                                         <img src="/img/products/noodles.jpg" alt="">
-                                                        <span>noodles</span>
                                                 </a>
+                                                <span>noodles</span>
                                         </article>
                                         <article class="category-item">
                                                 <a href="/products/category/meal">
-                                                        <img src="/img/products/Meal.jpg" alt="">
-                                                        <span>Meal</span>
+                                                        <img src="/img/products/bife.jpg" alt="">
                                                 </a>
+                                                <span>Meal</span>
                                         </article>
                                         <article class="category-item">
                                                 <a href="/products/category/alcohol">
                                                         <img src="/img/products/alcohol.jpg" alt="">
-                                                        <span>alcohol</span>
                                                 </a>
+                                                <span>alcohol</span>
                                         </article>
                                         <article class="category-item">
                                                 <a href="/products/category/beers">
                                                         <img src="/img/products/beers.jpg" alt="">
-                                                        <span>beers</span>
                                                 </a>
+                                                <span>beers</span>
                                         </article>
                                         <article class="category-item">
                                                 <a href="/products/restaurants">
                                                         <img src="/img/products/restaurant.jpg" alt="">
-                                                        <span>restaurants</span>
                                                 </a>
+                                                <span>restaurants</span>
                                         </article>
                                 </div>
+                                <hr>
+                                <div class="allCategories">
+                                        <a href="" class="allCategories-link">
+                                                All Categories
+                                        </a>
+                                </div>
                         </section>
-                        <h3 class="hotSale-tittle">Hot sale
-                                <i class="fa-solid fa-question" id="questionMark2" class="expland-offerts-benefits"></i>
-                                <p class="see-all-offerts">See more</p>
-                        </h3>
-                        <hr>
                         <section class="hotSale-carousel">
+                                <h3 class="hotSale-tittle property-TNotSelect">Hot sale
+                                        <i class="fa-solid fa-question pointer" id="questionMark2"
+                                                class="expland-offerts-benefits"></i>
+                                        <p class="see-all-offerts pointer">See more</p>
+                                </h3>
+                                <div class="btnsCards btnsCards-right">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="btnsCards btnsCards-left">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                </div>
                                 <div class="overflow-container">
-
                                         <% offerts.forEach(product=> { %>
-                                                <article class="food-card">
+                                                <article class="food-card pointer" id="foodCard">
                                                         <div class="offer-timing-container">
                                                                 <i class="fa-solid fa-stopwatch"></i>
                                                                 <span>Ends in: 16.09:35</span>
@@ -116,10 +125,21 @@
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
                                                                 <a href="/products/productDetail/<%= product.id%>">
-                                                                        <p>$<%= product.price%> <span>
-                                                                                                <%=product.price%>
+                                                                        <p>$<%= product.price%>
+                                                                                        <span>
+                                                                                                <% if (product.discount)
+                                                                                                        {%>
+                                                                                                        -
+                                                                                                        <%=product.discount%>
+                                                                                                                %
+
+                                                                                                                <% } else
+                                                                                                                        {
+                                                                                                                        %>
+
+                                                                                                                        <%}
+                                                                                                                                %>
                                                                                         </span>
-                                                                                        <%= product.discount%>
                                                                         </p>
                                                                         <span class="offer-info">
                                                                                 <%= product.name%>
@@ -129,7 +149,7 @@
                                                                                         <%= product.location%>
                                                                         </a>
                                                                 </a>
-                                                                <div class="btn-pay-object">
+                                                                <div class="btn-pay-object property-TNotSelect">
                                                                         <a
                                                                                 href="/products/productDetail/<%= product.id%>">Buy
                                                                                 Now!</a>
@@ -139,22 +159,45 @@
                                                 <% }) %>
                                 </div>
                         </section>
-                        <h3 class="hotSale-tittle">Most Popular :
-                                <i class="fa-solid fa-question" id="questionMark3" class="expland-offerts-benefits"></i>
-                                <p class="see-all-offerts">See more</p>
-                        </h3>
-                        <hr>
 
                         <section class="hotSale-carousel">
+                                <h3 class="hotSale-tittle property-TNotSelect">Most Popular :
+                                        <i class="fa-solid fa-question pointer" id="questionMark3"
+                                                class="expland-offerts-benefits"></i>
+                                        <a href="/products/all" class="see-all-offerts pointer">See more</a>
+                                </h3>
+                                <div class="btnsCards btnsCards-right">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="btnsCards btnsCards-left">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                </div>
                                 <div class="overflow-container">
                                         <% products.forEach(product=> { %>
-                                                <article class="food-card">
+                                                <article class="food-card pointer">
+                                                        <div class="offer-timing-container">
+                                                                <i class="fa-solid fa-stopwatch"></i>
+                                                                <span>Ends in: 16.09:35</span>
+                                                        </div>
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
                                                                 <a href="/products/productDetail/<%=product.id%>">
-                                                                        <p>$<%= product.price%> <span>
-                                                                                                <%= product.discount%>%
-                                                                                        </span></p>
+                                                                        <p>$<%= product.price%>
+                                                                                        <span>
+                                                                                                <% if (product.discount)
+                                                                                                        {%>
+                                                                                                        -
+                                                                                                        <%=product.discount%>
+                                                                                                                %
+
+                                                                                                                <% } else
+                                                                                                                        {
+                                                                                                                        %>
+
+                                                                                                                        <%}
+                                                                                                                                %>
+                                                                                        </span>
+                                                                        </p>
                                                                         <span class="offer-info">
                                                                                 <%= product.name%>
                                                                         </span>
@@ -163,6 +206,11 @@
                                                                                 <%= product.brand%>
                                                                                         <%= product.location%>
                                                                         </a>
+                                                                        <div
+                                                                                class="btn-pay-object property-TNotSelect ">
+                                                                                <a href="/products/productDetail/3">Add
+                                                                                        now!</a>
+                                                                        </div>
                                                                 </a>
                                                         </div>
                                                 </article>
@@ -174,29 +222,82 @@
 
                         <section class="promotion">
                                 <img src="/img/banner-food.jpg" alt="">
-                                <div class="expand-offert-banner" id="expand-offert-banner1">
+                                <div class="expand-offert-banner pointer" id="expand-offert-banner1">
                                         <p>see more</p>
                                 </div>
                         </section>
 
-                        <h3 class="hotSale-tittle">Restaurants :
-                                <i class="fa-solid fa-question" id="questionMark4" class="expland-offerts-benefits"></i>
-                                <p class="see-all-offerts">See more</p>
-                        </h3>
-                        <hr>
+                        <section id="brands-prom" class="main__section-brands-prom property-TNotSelect">
+                                <h3 class="hotSale-tittle property-TNotSelect ">Restaurants :
+                                        <i class="fa-solid fa-question pointer" id="questionMark4"
+                                                class="expland-offerts-benefits"></i>
+                                        <p class="see-all-offerts pointer">See more</p>
+                                </h3>
 
-                        <p>mc donnalds</p>
+                                <section class="main__section-brands-slider ">
+                                        <div class="div__brands-box">
+                                                <div class="div__logos-slide">
+                                                        <a href="/brands/BOSS" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/boss.svg"></a>
+                                                        <a href="/brands/DAddario" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/d-addario.svg"></a>
+                                                        <a href="/brands/Epiphone" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/epiphone.svg"></a>
+                                                        <a href="/brands/Gibson" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/gibson.svg"></a>
+                                                        <a href="/brands/Marshall" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/marshall.svg"></a>
+                                                        <a href="/brands/Yamaha" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/yamaha.svg"></a>
+                                                        <a href="/brands/Zildjian" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/zildjian.svg"></a>
+                                                        <a href="/brands/BOSS" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/boss.svg"></a>
+                                                        <a href="/brands/DAddario" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/d-addario.svg"></a>
+                                                        <a href="/brands/Epiphone" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/epiphone.svg"></a>
+                                                        <a href="/brands/Gibson" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/gibson.svg"></a>
+                                                        <a href="/brands/Marshall" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/marshall.svg"></a>
+                                                        <a href="/brands/Yamaha" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/yamaha.svg"></a>
+                                                        <a href="/brands/Zildjian" class="a__content-image"> <img
+                                                                        src="/img/banners/SliderBrands/zildjian.svg"></a>
+                                                </div>
+                                        </div>
+                                </section>
+                        </section>
+
+                        <a href="" class="restaurant-links">mc donnalds</a>
                         <section class="hotSale-carousel">
+                                <div class="btnsCards btnsCards-right">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="btnsCards btnsCards-left">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                </div>
                                 <div class="overflow-container">
                                         <% mcDonaldsProducts.forEach(product=> { %>
-                                                <article class="food-card">
+                                                <article class="food-card pointer">
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
                                                                 <a href="/products/productDetail/<%=product.id%>">
                                                                         <p>$<%= product.price%>
                                                                                         <span>
-                                                                                                <%=product.discount%>
-                                                                                                        %
+                                                                                                <% if (product.discount)
+                                                                                                        {%>
+                                                                                                        -
+                                                                                                        <%=product.discount%>
+                                                                                                                %
+
+                                                                                                                <% } else
+                                                                                                                        {
+                                                                                                                        %>
+
+                                                                                                                        <%}
+                                                                                                                                %>
                                                                                         </span>
                                                                         </p>
                                                                         <span class="offer-info">
@@ -206,25 +307,45 @@
                                                                                 <%= product.brand%>
                                                                                         <%= product.location%>
                                                                         </a>
+                                                                        <div class="btn-pay-object property-TNotSelect">
+                                                                                <a href="/products/productDetail/3">Add
+                                                                                        now!</a>
+                                                                        </div>
                                                                 </a>
                                                         </div>
                                                 </article>
-                                        <% }) %>
+                                                <% }) %>
 
                                 </div>
                         </section>
-                        <p>Tomasso</p>
+                        <a href="" class="restaurant-links">Tomasso</a>
                         <section class="hotSale-carousel">
+                                <div class="btnsCards btnsCards-right">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="btnsCards btnsCards-left">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                </div>
                                 <div class="overflow-container">
                                         <% tomassoProducts.forEach(product=> { %>
-                                                <article class="food-card">
+                                                <article class="food-card pointer">
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
                                                                 <a href="/products/productDetail/<%=product.id%>">
                                                                         <p>$<%= product.price%>
                                                                                         <span>
-                                                                                                <%=product.discount%>
-                                                                                                        %
+                                                                                                <% if (product.discount)
+                                                                                                        {%>
+                                                                                                        -
+                                                                                                        <%=product.discount%>
+                                                                                                                %
+
+                                                                                                                <% } else
+                                                                                                                        {
+                                                                                                                        %>
+
+                                                                                                                        <%}
+                                                                                                                                %>
                                                                                         </span>
                                                                         </p>
                                                                         <span class="offer-info">
@@ -234,25 +355,45 @@
                                                                                 <%= product.brand%>
                                                                                         <%= product.location%>
                                                                         </a>
+                                                                        <div class="btn-pay-object property-TNotSelect">
+                                                                                <a href="/products/productDetail/3">Add
+                                                                                        now!</a>
+                                                                        </div>
                                                                 </a>
                                                         </div>
                                                 </article>
-                                        <% }) %>
+                                                <% }) %>
 
                                 </div>
                         </section>
-                        <p>Dean and Dennis</p>
+                        <a href="" class="restaurant-links">Dean and Dennis</a>
                         <section class="hotSale-carousel">
+                                <div class="btnsCards btnsCards-right">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="btnsCards btnsCards-left">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                </div>
                                 <div class="overflow-container">
                                         <% deanAndDennisProducts.forEach(product=> { %>
-                                                <article class="food-card">
+                                                <article class="food-card pointer">
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
                                                                 <a href="/products/productDetail/<%=product.id%>">
                                                                         <p>$<%= product.price%>
                                                                                         <span>
-                                                                                                <%=product.discount%>
-                                                                                                        %
+                                                                                                <% if (product.discount)
+                                                                                                        {%>
+                                                                                                        -
+                                                                                                        <%=product.discount%>
+                                                                                                                %
+
+                                                                                                                <% } else
+                                                                                                                        {
+                                                                                                                        %>
+
+                                                                                                                        <%}
+                                                                                                                                %>
                                                                                         </span>
                                                                         </p>
                                                                         <span class="offer-info">
@@ -262,25 +403,45 @@
                                                                                 <%= product.brand%>
                                                                                         <%= product.location%>
                                                                         </a>
+                                                                        <div class="btn-pay-object property-TNotSelect">
+                                                                                <a href="/products/productDetail/3">Add
+                                                                                        now!</a>
+                                                                        </div>
                                                                 </a>
                                                         </div>
                                                 </article>
-                                        <% }) %>
+                                                <% }) %>
 
                                 </div>
                         </section>
-                        <p>shawarmi</p>
+                        <a href="" class="restaurant-links">shawarmi</a>
                         <section class="hotSale-carousel">
+                                <div class="btnsCards btnsCards-right">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="btnsCards btnsCards-left">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                </div>
                                 <div class="overflow-container">
                                         <% shawarmiProducts.forEach(product=> { %>
-                                                <article class="food-card">
+                                                <article class="food-card pointer">
                                                         <img src="/img/hero-image-foodFunnel.jpg" alt="">
                                                         <div class="product-image-container">
                                                                 <a href="/products/productDetail/<%=product.id%>">
                                                                         <p>$<%= product.price%>
                                                                                         <span>
-                                                                                                <%=product.discount%>
-                                                                                                        %
+                                                                                                <% if (product.discount)
+                                                                                                        {%>
+                                                                                                        -
+                                                                                                        <%=product.discount%>
+                                                                                                                %
+
+                                                                                                                <% } else
+                                                                                                                        {
+                                                                                                                        %>
+
+                                                                                                                        <%}
+                                                                                                                                %>
                                                                                         </span>
                                                                         </p>
                                                                         <span class="offer-info">
@@ -290,31 +451,48 @@
                                                                                 <%= product.brand%>
                                                                                         <%= product.location%>
                                                                         </a>
+                                                                        <div class="btn-pay-object property-TNotSelect">
+                                                                                <a href="/products/productDetail/3">Add
+                                                                                        now!</a>
+                                                                        </div>
                                                                 </a>
                                                         </div>
                                                 </article>
-                                        <% }) %>
+                                                <% }) %>
 
                                 </div>
                         </section>
                 </section>
-                <ul class="modalWindow" id="modalWindow">
-                        <div class="closeModal" id="closeModal">x</div>
-                        <li><i class="fa-light fa-percent"></i></li>
-                        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, ipsa? Alias esse veniam, eum
-                                odit, eaque, nam itaque nemo provident quo cum cupiditate. Vero natus nihil odit,
-                                suscipit molestiae nesciunt?</li>
-                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, laboriosam!</li>
-                </ul>
+                <% offerts.forEach(product=> { %>
+                        <div class="modalWindow-blur">
+                                <div class="">
+                                        <a href="" class="foodCard-modalWindow">
+                                                <% product.image %>
+                                        </a>
+                                        </div>
+                        </div>
+                        <% }) %>
+                                <ul class="modalWindow" id="modalWindow">
+                                        <div class="closeModal" id="closeModal">x</div>
+                                        <li><i class="fa-solid fa-burger"></i></li>
+                                        <li>This are all the categories whe have actually</li>
+                                        <li>Here's where you would be able to filter the products by category. click in
+                                                the one that you
+                                                like the most and then select the product.</li>
+                                </ul>
 
-                <ul class="offertModalWindow" id="offertModalWindow1">
-                        <div class="closeModal" id="closeModal">x</div>
-                        <li class="image-container-window-offert"><img src="/img/banner-food.jpg" alt=""></li>
-                        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, ipsa? Alias esse veniam, eum
-                                odit, eaque, nam itaque nemo provident quo cum cupiditate. Vero natus nihil odit,
-                                suscipit molestiae nesciunt?</li>
-                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, laboriosam!</li>
-                </ul>
+                                <ul class="offertModalWindow" id="offertModalWindow1">
+                                        <div class="closeModal" id="closeModal">x</div>
+                                        <li class="image-container-window-offert"><img src="/img/banner-food.jpg"
+                                                        alt=""></li>
+                                        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, ipsa? Alias
+                                                esse veniam, eum
+                                                odit, eaque, nam itaque nemo provident quo cum cupiditate. Vero natus
+                                                nihil odit,
+                                                suscipit molestiae nesciunt?</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti,
+                                                laboriosam!</li>
+                                </ul>
         </body>
         <%- include('./partials/footer') %>
                 <script src="/scripts/index.js"></script>

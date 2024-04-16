@@ -2,8 +2,8 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    scrollbar-width:thin ;
-    scrollbar-color: wheat ;
+    scrollbar-width: thin;
+    scrollbar-color: wheat;
     list-style: none;
     text-decoration: none;
 }
@@ -13,11 +13,74 @@ html {
 }
 
 body {
-    margin-top: 10vh;
-    margin-bottom: 5vh;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+} /* para que el texto no se vea tan mierdas cuando no entre en el viewport */
+
 img {
+    width: 100%;
     object-fit: cover;
     flex: 1 0 100%;
+}
+
+/* Properties */
+
+.property-TNotSelect {
+	/* ponga esta clase es para evitar que seleccionen el texto */
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer */
+	user-select: none; /* Standard syntax */
+}
+
+/* custom classes */
+
+.pointer {
+	cursor: pointer;
+}
+
+.flex {
+	display: flex;
+}
+
+.block {
+	display: block;
+}
+
+.center-x {
+	justify-content: center;
+}
+
+.center-y {
+	align-items: center;
+}
+
+.flxCenter {
+	justify-content: center;
+	align-items: center;
+}
+
+.between {
+	justify-content: space-between;
+}
+
+.flx-column {
+	flex-direction: column;
+}
+
+.flx-end {
+	justify-content: end;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
 }

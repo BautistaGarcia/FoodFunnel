@@ -23,6 +23,66 @@ const adminController = {
         }
 
     },
+
+    allUsers: async (req, res) => {        
+        try {
+            let products = await db.Products.findAll();
+
+            res.render("admin", { products })
+        } catch (err) {
+            console.log(err)
+            res.render("404Found");
+        }
+
+    },
+
+    allProducts: async (req, res) => {        
+        try {
+            let products = await db.Products.findAll();
+
+            res.render("admin", { products })
+        } catch (err) {
+            console.log(err)
+            res.render("404Found");
+        }
+
+    },
+
+    allCategories: async (req, res) => {        
+        try {
+            let products = await db.Products.findAll();
+
+            res.render("admin", { products })
+        } catch (err) {
+            console.log(err)
+            res.render("404Found");
+        }
+
+    },
+
+    allBanners: async (req, res) => {        
+        try {
+            let products = await db.Products.findAll();
+
+            res.render("admin", { products })
+        } catch (err) {
+            console.log(err)
+            res.render("404Found");
+        }
+
+    },
+
+    allPromotions: async (req, res) => {        
+        try {
+            let products = await db.Products.findAll();
+
+            res.render("admin", { products })
+        } catch (err) {
+            console.log(err)
+            res.render("404Found");
+        }
+
+    },
     
     
     /*      JSON CONTROLLER

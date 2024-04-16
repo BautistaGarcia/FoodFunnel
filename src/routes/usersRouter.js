@@ -50,7 +50,7 @@ const loginValidations = [
 ];
 
 
-router.get('/userProfile/:id', authMiddleware.common_user, authMiddleware.profile_filter, usersController.userProfile);
+router.get('/userProfile/:id', usersController.userProfile);
 router.put('/userProfile/:id', /* upload.single("imgProfile") ,*/ authMiddleware.common_user, usersController.editUser);
 
 // Login

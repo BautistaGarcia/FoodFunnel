@@ -15,14 +15,15 @@ router.get('/all', productsController.allProducts);
 
 // Buscar un producto
 router.get('/search', productsController.search);
+//
 
-router.get('/create',authMiddleware.admin , productsController.create);
+router.get('/create', productsController.create);
 router.post('/create', productsController.processCreate);
 
-router.get('/edit/:id',authMiddleware.admin, productsController.edit);
+router.get('/edit/:id', productsController.edit);
 router.post('/edit/:id', productsController.processEdit);
 
-router.delete('/destroy/:id',authMiddleware.admin , productsController.destroy);
+router.delete('/destroy/:id', productsController.destroy);
 
 router.get('/category/:name', productsController.category);
 

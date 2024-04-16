@@ -3,13 +3,36 @@ const express = require("express");
 const path = require("path")
 const fs = require("fs");
 const methodOverride = require("method-override"); // requiriendo method para usar put y delate
+const logger = require('morgan')
+const { Server } = require("socket.io");
+
 const app = express();
+
+const { createServer } = require('node:http');
+const server = createServer(app)
+
 const session = require("express-session");
 const cookieParser = require("cookie-parser"); //--> Requerimos el módulo 'cookieParser' para manejar las cookies.
 
 
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware")
 
+
+const io = new Server(server, {
+    connectionStateRecovery: {}
+
+});
+
+io.on('connection', (socket) => {
+    console.log('a user has connected');
+    socket.on('disconnect', () => {
+        console.log('a user has disconnected');
+    });
+
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', msg)
+    });
+});
 //************************************* Middlewares *************************************\\
 app.use(express.static("public")); // para usar los archivos estaticos de la carpeta public
 
@@ -25,8 +48,11 @@ app.use(cookieParser())
 
 // app.use(logMiddleware);
 app.use(session({secret: "es secreto pa!", resave: false, saveUninitialized: false}))
-   //--> Es imprescindible el orden de estos middleware, porque tienen un orden de ejecución.
+//--> Es imprescindible el orden de estos middleware, porque tienen un orden de ejecución.
 app.use(userLoggedMiddleware);
+
+app.use(logger('dev'))
+
 // validation middlewares
 
 // en mantenimiento 404!
@@ -61,10 +87,12 @@ const adminRouter = require("./routes/adminRouter");
 app.use("/admin", adminRouter);
 // 
 
+
+
 //************************************* Listen Server *************************************\\
 const port = process.env.PORT || 3010;
 
-app.listen(`${port}`, () => {
+server.listen(`${port}`, () => {
     console.log(`Servidor funcionando en: http://localhost:${port}`);
 });
 

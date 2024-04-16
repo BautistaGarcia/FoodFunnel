@@ -1,8 +1,4 @@
 
-a {
-    color: black;
-}
-
 footer {
     z-index: 999;
     position: fixed;
@@ -12,7 +8,6 @@ footer {
     justify-content: space-around;
     align-items: flex-end;
     list-style: none;
-    height: 7vh;
     padding: 5px;
     background: white;
     border-top: 1px black solid;
@@ -32,11 +27,6 @@ footer {
         background: #fff;
         box-shadow: inset 0px 0px 10px 0px;
         border: 3px white solid;
-        
-
-        i {
-            font-size: 18px;
-        }
 
         
         .home-link {
@@ -50,9 +40,12 @@ footer {
     }
 
     li {
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
         i {
-            font-size: 22px;
+            font-size: 20px;
         }
     }
 }

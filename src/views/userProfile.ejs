@@ -1,15 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <section class="user-card-container">
-        <h3><%= user.image %></h3>
-        <h3><%= user.first_name %></h3>
-        <h3><%= user.email %></h3>
-    </section>
-</body>
-</html>
+<!-- -VISTA PARA USUARIOS- -->
+
+<%- include('./partials/head.ejs') %>
+    <link href="/styles/userProfile.css" rel="stylesheet">
+
+    <!-- =========================================================================================================== -->
+
+    <!-- -HEADER / ENCABEZADO- -->
+    <%- include('./partials/header.ejs') %>
+
+        <!-- =========================================================================================================== -->
+
+        <main>
+            <div class="goBack-container">
+                <a href="/"><i class="fa-solid fa-arrow-left"></i></a>
+            </div>
+            <div id="profile-title">
+
+                <div class="img-container">
+                    <img src="/img/foto-presentacion.jpg" alt="">
+                </div>
+            </div>
+            <section class="primary-section">
+                <section class="first-section">
+                    <section class="second-section">
+                        <strong class="user-fullName">
+                            <%= user.first_name %>
+                                <%= user.last_name %>
+                        </strong>
+                        <div class="user-buttons">
+                            <div class="edit-user">
+                                <button class="profile-button" onclick="show()"> Edit Profile </button>
+                            </div>
+                            <div class="more-user">
+                                <button class="profile-showMore-button"> <i class="fa-solid fa-caret-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="profile-info-navBar">
+                        <div class="profile-navBar-buttons">
+                            <i class="fa-solid fa-address-card"></i>
+                        </div>
+                        <div class="profile-navBar-buttons">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="profile-navBar-buttons">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <div class="profile-navBar-buttons">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                    </div>
+                    <div class="user-description" id="user-description">
+                        <div class="data-user">
+                            <span style="text-decoration: underline;">
+                                Your Info:
+                            </span>
+                            <span>
+                                E-mail: <br>
+                                <%= user.email %>
+                            </span>
+                            <span>
+                                Country: <br>
+                                <%= user.country %>
+                            </span>
+                            <span>
+                                Registered since: <br>
+                                <%= user.registered_date %>
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <section id="edit-user-form">
+                        <!-- SE BUSCA EL TIPO DE USUARIO DE LA SESIÓN A TRAVÉS DE 'LOCALS', PARA CONFIGURAR EL ATRIBUTO 'action' DEL FORMULARIO -->
+                        <% if (locals.userIsLogged==true && locals.userIsAdmin==false) { %>
+                            <form action="/users/userProfile/<%= user.id %>?_method=PUT" method="POST"
+                                enctype="multipart/x-www-form-urlencoded">
+                                <% } else if (locals.userIsLogged==true && locals.userIsAdmin==true) { %>
+                                    <form action="/admin/userProfile/<%= user.id %>?_method=PUT" method="POST"
+                                        enctype="multipart/x-www-form-urlencoded">
+                                        <% } %>
+
+                                            <div class="errores">
+                                                <ul></ul>
+                                            </div>
+
+                                            <label for="">
+                                                <p>Name</p>
+                                                <input id="user-name" name="first_name" type="text"
+                                                    value="<%= user.first_name %>">
+                                            </label>
+                                            <label for="">
+                                                <p>Last name</p>
+                                                <input id="last-name" name="last_name" type="text"
+                                                    value="<%= user.last_name %>">
+                                            </label>
+                                            <label for="">
+                                                <p>Email</p>
+                                                <input id="e-mail" name="e_mail" type="text" value="<%= user.e_mail %>">
+                                            </label>
+
+                                            <div>
+                                                <input class="profile-button" type="submit">
+                                                <button class="profile-button" onclick="hide()">Volver</button>
+                                            </div>
+
+                                    </form>
+                    </section>
+
+                </section>
+            </section>
+        </main>
+
+        <!-- =========================================================================================================== -->
+
+        <!-- FOOTER / PIE DE PAGINA -->
+        <%- include('./partials/footer.ejs') %>
+            <script src="/scripts/user.js"></script>
+
+            <!-- =========================================================================================================== -->

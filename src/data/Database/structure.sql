@@ -15,7 +15,7 @@
 
 CREATE TABLE `user_type` (
    `id` INT NOT NULL AUTO_INCREMENT,
-   `user-type` VARCHAR(50) NOT NULL,
+   `user_type` VARCHAR(50) NOT NULL,
    PRIMARY KEY (`id`)
 );
 
@@ -88,6 +88,6 @@ ALTER TABLE `product` ADD CONSTRAINT `FK_76128baf-04ed-43f6-8357-aaa2ab5519fc` F
 
 ALTER TABLE `product` ADD CONSTRAINT `FK_dcd336f0-a255-46cc-a779-628fc02bd442` FOREIGN KEY (`location_id`) REFERENCES `state`(`id`)  ;
 
-ALTER TABLE `user` ADD CONSTRAINT `FK_a09b65c7-e004-4628-b163-24db41eaee70` FOREIGN KEY (`user-type_id`) REFERENCES `user_type`(`id`)  ;
+ALTER TABLE `user` ADD CONSTRAINT `FK_a09b65c7-e004-4628-b163-24db41eaee70` FOREIGN KEY (`user_type_id`) REFERENCES `user_type`(`id`)  ;
 
 ALTER TABLE `user` ADD CONSTRAINT `FK_8346a9ce-dfae-4684-898c-48a7e7820992` FOREIGN KEY (`country_id`) REFERENCES `country`(`id`)  ;

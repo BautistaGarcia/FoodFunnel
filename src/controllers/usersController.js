@@ -40,7 +40,6 @@ const usersController = {
                 image: req.file == undefined ? "alvaro.jpg" : req.file.filename,    //--> Acá guardamos el NOMBRE del archivo en la BD, y después se renderiza la ruta completa con EJS
                 user_type: 2,
                 registered_date: Date.now(),    //--> Esta función trae la fecha actual
-
                 // user_type_id: 2,    //--> En este caso el Id debería ser siempre '2', porque es el que corresponde a 'common_user'
                 //--Definir cómo vamos a crear el usuario 'admin', que debería ser creado una sola vez.
             }
@@ -90,7 +89,6 @@ const usersController = {
                             userToLog.password = "";
                             req.session.userLoggedIn = userToLog;
                         }
-
 
                         break;
                     }

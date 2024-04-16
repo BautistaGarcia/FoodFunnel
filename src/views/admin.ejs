@@ -1,29 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/admin.css">
     <%- include('./partials/head') %>
-    <title>Admin</title>
+        <title>Admin</title>
 </head>
 <%- include('./partials/header') %>
 
-<body>
-    <aside class="aside-menu">
-        <li>products</li>
-        <li>users</li>
-        <li>categories</li>
-        <li>banners</li>
-        <li>promotions</li>
-    </aside>
+    <body>
+<!--         <aside class="aside-menu">
+            <li>products</li>
+            <li>users</li>
+            <li>categories</li>
+            <li>banners</li>
+            <li>promotions</li>
+        </aside> -->
 
-    <section class="admin-info">
-        <div class="admin-image-container">
-            <img src="/img/foto-presentacion.jpg" alt="">
-        </div>
-    </section>
-</body>
-<%- include('./partials/footer') %>
+        <section class="admin-info">
+            <div class="admin-image-container">
+                <img src="/img/foto-presentacion.jpg" alt="">
+            </div>
+        </section>
+        <h1>Welcome Admin !</h1>
+        <section class="main-container">
+            <a class="database-div" href="/admin/allUsers">
+                <span>
+                    users amount: <br>
+                    26
+                </span>
+            </a>
+            <a class="database-div" href="/admin/allProducts">
+                <span>
+                    products amount: <br>
+                    26
+                </span>
+            </a>
+            <a class="database-div" href="/admin/allCategories">
+                <span>
+                    categories amount: <br>
+                    12
+                </span>
+            </a>
+            <a class="database-div" href="/admin/allBanners">
+                <span>
+                    banners amount: <br>
+                    26
+                </span>
+            </a>
+            <a class="database-div" href="/admin/allPromotions">
+                <span>
+                    promotions amount: <br>
+                    12
+                </span>
+            </a>
+        </section>
+        <section class="create-section-container">
+            <a href="/products/create" class="create-item-link">
+                create a Product
+            </a>
+            <a href="" class="create-item-link">
+                create a category
+            </a>
+            <a href="" class="create-item-link">
+                create a banner
+            </a>
+            <a href="" class="create-item-link">
+                create a promotion
+            </a>
+        </section>
+    </body>
+    <%- include('./partials/footer') %>
 
 </html>
