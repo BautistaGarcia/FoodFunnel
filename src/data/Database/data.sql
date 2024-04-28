@@ -35,11 +35,7 @@ INSERT INTO state
 (location)
 VALUES ('Belgium'),('Spain'),('France'),('Argentina'),('Italy')
 
-INSERT INTO address
-(address)
-VALUES ('Rue haerne 805'),('Rue de llo bregat 204'),('Av. Champs Elysées 153'),('Av. Libertador 2008'),('Via Napoletana 1046')
-
-
+INSERT INTO address (location) VALUES ('Location 1'), ('Location 2'), ('Location 3'), ('Location 4'), ('Location 5'), ('Location 6')
 
 INSERT INTO product
 (id, name, description, image, quantity, price, discount, brand_id, category_id, location_id, address_id)
@@ -51,6 +47,5 @@ VALUES
 (5,'Chocolate','70% black chocolate ice cream 500gr','IMG_DEFAULT.svg',25,25, 15, 1, 6, 3, 3),
 (6,'spaghetti with meat balls','noodles, 100gr-meal, neapolitan sauce','IMG_DEFAULT.svg',15,5, 45, 4, 3, 5, 5),
 (7,'Estrella Galicia 250ml','Spanish lager beer','IMG_DEFAULT.svg',50,10, 5, 4, 8, 2, 2),
-(8,'Gin Tonic 500ml','Gin Aconcagua, annis, strawberry','IMG_DEFAULT.svg',100,15, 50, 2, 9, 4, 4)
-
+(8,'Gin Tonic 500ml','Gin Aconcagua, annis, strawberry','IMG_DEFAULT.svg',100,15, 50, 2, 9, 4, 4);
 

@@ -1,23 +1,23 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "foodfunnel",  //--> Este nombre debe ser igual a cómo lo tiene configurado cada uno en su compu
-    "host": "127.0.0.1",
+    "username": "u2wif3ny3rydzree",
+    "password": "ImcY2WqvcX9CoMf6Mj1A",
+    "database": "bzy8vvszfmtys4xyfssy",  //--> Este nombre debe ser igual a cómo lo tiene configurado cada uno en su compu
+    "host": "bzy8vvszfmtys4xyfssy-mysql.services.clever-cloud.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "u2wif3ny3rydzree",
+    "password": "ImcY2WqvcX9CoMf6Mj1A",
     "database": "database_test",
-    "host": "127.0.0.1",
+    "host": "bzy8vvszfmtys4xyfssy-mysql.services.clever-cloud.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
+    "username": "u2wif3ny3rydzree",
+    "password": "ImcY2WqvcX9CoMf6Mj1A",
     "database": "database_production",
-    "host": "127.0.0.1",
+    "host": "bzy8vvszfmtys4xyfssy-mysql.services.clever-cloud.com",
     "dialect": "mysql"
   }
 }

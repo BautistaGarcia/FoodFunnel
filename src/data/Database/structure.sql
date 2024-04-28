@@ -13,6 +13,12 @@
 -- (eso está en el archivo data.sql)
 
 
+--cuando la base de datos este subida a clever-cloud, desde la consola
+--de windows podemos escribir DESCRIBE + (el nombre de la tabla para verla)
+--luego enter, el punto y coma y enter nuevamente
+
+--con show tables podremos ver todas las tablas
+
 CREATE TABLE `user_type` (
    `id` INT NOT NULL AUTO_INCREMENT,
    `user_type` VARCHAR(50) NOT NULL,
@@ -21,7 +27,7 @@ CREATE TABLE `user_type` (
 
 CREATE TABLE `address` (
    `id` INT NOT NULL AUTO_INCREMENT,
-   `address` INT NOT NULL,
+   `location` VARCHAR(150) NOT NULL,
    PRIMARY KEY (`id`)
 );
 
