@@ -13,6 +13,14 @@ const { Op, where } = require("sequelize");
 const productsController = {
 
     productDetail: async (req, res) => {
+        // guardar los productos en los k se accede x url
+			const productsId = req.params.id;
+			req.session.lastSeens;
+			if (req.session.lastSeens) {
+				req.session.lastSeens.push(parseInt(productsId))
+			}
+			/* console.log(req.session.lastSeens); Para observar la id de los productos ultimos visto es un array*/ 
+		//
         try {
             let products = await db.Products.findByPk(req.params.id, {
                 include: [
@@ -279,7 +287,8 @@ const productsController = {
 
     order: async (req, res) => {
         try {
-            res.render("order.ejs");
+            let products = await db.Products.findAll()
+            res.render("order.ejs", { products });
         } catch (err) {
             res.render("404Found.ejs");
         }

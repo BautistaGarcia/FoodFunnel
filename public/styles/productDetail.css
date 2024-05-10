@@ -6,9 +6,14 @@
     padding: 5px 10px;
     font-size: 29px;
     border-radius: 50%;
+    opacity: 0.64;
 
     a {
         color: white;
+    }
+
+    &:hover {
+        opacity: 1;
     }
 }
 
@@ -19,10 +24,27 @@
         max-width: 769px;
         width: 100vw;
         margin: auto;
+        position: relative;
 
         img {
             border-radius: 10px;
             width: 100%;
+        }
+
+        .image-sliderBar {
+            display: flex;
+            justify-content: end;
+            padding: 5px 5%;
+
+            width: 100%;
+            font-size: 18px;
+            color: #fff;
+
+            background: #0000005e;
+            backdrop-filter: blur(4px);
+
+            position: absolute;
+            bottom: 0;
         }
     }
 }
@@ -31,19 +53,35 @@
     display: flex;
     padding: 15px;
     width: 100%;
-    height: 100%;
+    height: 45vh;
     flex-direction: column;
     justify-content: space-evenly;
 
 }
 
 .product-offert-container {
+    width: 100%;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
 
     li {
         display: flex;
     }
+}
+
+#timer {
+    margin-left: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#timer-finished {
+    background-color: #28a745;
+}
+
+#timer:hover {
+    background-color: #007bff;
+    cursor: pointer;
 }
 
 .text {
@@ -62,10 +100,10 @@
 
 
     .addTo-order {
+        margin-top: 0.5rem;
         display: flex;
-        background-color: yellow;
         justify-content: space-evenly;
-        width: 200px;
+        box-shadow: 0 0 10px 0px gray;
         padding: 10px;
         font-size: 18px;
         border-radius: 18px;
@@ -92,17 +130,27 @@
 }
 
 .edit-product {
-    background-color: yellow;
-    padding: 10px;
-    font-size: 18px;
+    width: 25%;
+    padding: 5px;
+    border: 2px solid;
     border-radius: 18px;
+    margin-top: 0.5rem;
+
+    a {
+        color: #000000;
+    }
 }
 
 .delete-product {
-    background-color: red;
-    padding: 10px;
-    font-size: 18px;
+    width: 25%;
+    padding: 5px;
+    border: 2px solid;
     border-radius: 18px;
+    margin-top: 0.5rem;
+
+    a {
+        color: #000000;
+    }
 }
 
 .total-container {
@@ -139,30 +187,79 @@
         }
     }
 }
+
 #chat {
+    position: relative;
+    background: #00000026;
+    width: 100%;
     height: 550px;
+    margin: auto;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    /* Change this to column */
+    align-items: center;
+    /* Add this to center the items */
+    overflow-y: auto;
+    /* Change this to auto */
+    overflow-x: hidden;
+    /* Add this to hide the horizontal scrollbar */
+    border-radius: 15px;
 }
 
 #messages {
-    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    /* Change this to column */
+    width: 100%;
+    /* Add this to make the container take up the full width */
+    height: 100%;
+    /* Add this to make the container take up the full height */
+    gap: 1rem;
+    /* Add this to add space between the messages */
+    list-style: none;
+    /* Add this to remove the bullet points */
+    padding: 0;
+    /* Add this to remove the default padding */
+    margin: 0;
+    /* Add this to remove the default margin */
+    scroll-snap-type: y mandatory;
+    /* Add this to enable vertical scrolling */
 }
 
 #messages li {
-    padding: 18px 1rem;
+    scroll-snap-align: start;
+    /* Add this to align the messages to the top */
+    width: 100%;
+    /* Add this to make the messages take up the full width */
+    height: 100px;
+    /* Add this to set the height of the messages */
+    background: #fff;
+    /* Add this to give the messages a background color */
+    border-radius: 5px;
+    /* Add this to give the messages rounded corners */
+    padding: 1rem;
+    /* Add this to add padding to the messages */
+    box-sizing: border-box;
+    /* Add this to include the padding in the height */
+    display: flex;
+    /* Add this to enable flexbox layout */
+    align-items: center;
+    /* Add this to center the content vertically */
+    justify-content: center;
+    /* Add this to center the content horizontally */
 }
 
-#messages li:nth-child(odd){
+#messages li:nth-child(odd) {
     background-color: #0000002e;
 }
 
 #form {
+    position: absolute;
     display: flex;
-    height: 48px;
+    width: 90%;
+    height: 58px;
     padding: 4px;
-
 }
 
 #input {

@@ -4,92 +4,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
+    <%- include('./partials/head') %>
+        <title>Order</title>
+        <style>
+            .goBack-container {
+                margin-top: 15px;
+                position: absolute;
+                left: 15px;
+                background: black;
+                padding: 5px 10px;
+                font-size: 25px;
+                border-radius: 50%;
+                z-index: 10;
+                opacity: .4;
 
-        header {
-            width: 100%;
-            height: 10vh;
-            background-color: wheat;
-            position: fixed;
-            top: 0;
-
-            nav {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                padding: 15px;
-
-                i {
-                    font-size: 28px;
+                a {
+                    color: white;
                 }
 
-                .burguer-menu-container {
-                    position: relative;
-                    transform: translateY(-110%);
-                    transition: all .7s ease-in-out;
+                &:hover {
+                    opacity: 1;
                 }
             }
-        }
 
-        .order-container {
-            margin-top: 10vh;
-            height: 100vh;
-            width: 100vw;
-            background-color: rgb(99, 53, 33);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
+            .cart-content {
+                margin-top: 10vh;
+            }
 
-            span {
+            .cart-tittle {
                 display: flex;
-                width: 100%;
-                padding: 15px;
-                color: white;
-                font-size: 24px;
-                border-bottom: white 3px solid;
                 justify-content: space-between;
+                align-items: center;
+                padding: 5px;
+                width: 100%;
+
+                .cart-tittles {}
+
+                .options {
+                    display: flex;
+                    align-items: center;
+                    border-radius: 50%;
+                    padding: 5px 10px;
+                    background: lightgray;
+                    rotate: 90deg;
+                    margin: 1rem;
+                }
             }
 
-            p {
-                color: white;
-                font-size: 18px;
+
+            .product-card-container {
+                padding-bottom: 15vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
-        }
-    </style>
+
+            .product-card {
+                display: flex;
+                justify-content: space-between;
+                margin: 0.75rem;
+                max-width: 85vw;
+
+                &:hover {
+                    background: #cecece2d;
+                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.416);
+                }
+
+                .card-left {
+                    padding: 0.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .card-right {
+                    display: flex;
+                    max-width: 50%;
+                    padding: 0.5rem;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+
+                    .price {
+                        text-decoration: line-through;
+                    }
+
+                    .discount {
+                        color: green;
+
+                    }
+                }
+            }
+
+            .addNumber_cont {
+                width: fit-content;
+                display: flex;
+                background-color: lightgray;
+                border-radius: 18px;
+
+                button {
+                    width: 25px;
+                    font-size: 18px;
+                    margin: 5px;
+                    border-radius: 50%;
+                }
+            }
+
+            .payment-container {
+                width: 100%;
+                position: fixed;
+                bottom: 0;
+                background: #fff;
+            }
+
+            .subtotal-container {
+                display: flex;
+                justify-content: space-between;
+                padding: 5px;
+            }
+
+            .checkout {
+                width: 80%;
+                height: 7vh;
+                margin: 0.5rem auto;
+                background: #000;
+                color: white;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    opacity: .85;
+                }
+            }
+
+            .addItems {
+                width: 80%;
+                height: 7vh;
+                margin: 0.5rem auto;
+                background: #00000013;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: .75;
+
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            @media (min-width:425px) {
+                .screenWidth {
+                    width: 85%;
+                    margin: auto;
+                }
+
+                .subtotal-container {
+                    width: 85%;
+                    margin: auto;
+                }
+            }
+
+            @media (min-width:1024px) {
+                .product-card-container {
+                    padding-bottom: 15vh;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        </style>
 </head>
 
-<header>
-    <nav>
-        <h1>Food Funnel</h1>
-        <i class="fa-solid fa-burger" id="menuBurguer-btn">
-        </i>
-        <div class="burguer-menu-container">
-            <menu class="menu-burguer" id="menu-burguer">
-                <a href="#home">Home</a>
-                <a href="#recipes">recipes</a>
-            </menu>
-        </div>
-    </nav>
-</header>
-
 <body>
+    <%- include('./partials/header') %>
+        <div class="goBack-container">
+            <a href="/"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
 
-    <section class="order-container">
-        <span>Your order <text>15000$</text></span>
-        <p>salmon rosado</p>
-        <p>salmon rosado</p>
-        <p>salmon rosado</p>
-        <p>salmon rosado</p>
-        <p>salmon rosado</p>
-    </section>
+        <section class="screenWidth" id="screenWidth">
+            <div class="cart-content">
+                <div class="cart-tittle">
+                    <div class="cart-tittles">
+                        <h2>Restaurant Name</h2>
+                        <h4>Deliver to: direccion 108</h4>
+                    </div>
+                    <div class="options" id="options">
+                        <i class="fa-solid fa-ellipsis-vertical pointer"></i>
+                    </div>
+                </div>
+                <div class="subtotal-container">
+                    <span>7 items</span>
+                    <p>Subtotal: $23.00</p>
+                </div>
+                <hr>
+                <ul class="product-card-container">
+                    <!-- foreach products -->
+                    <% products.forEach(product=> { %>
+                        <li class="product-card" id="product-card">
+                            <div class="card-left">
+                                <strong>
+                                    <%= product.name %>
+                                </strong>
+                                <p>
+                                    <%= product.description %>
+                                </p>
+                                <div class="addNumber_cont">
+                                    <button id="disabledBtn" onclick="decrementar('<%= product.id %>')">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
 
+                                    <div class="value_cont">
+                                        <span id="cantidad-<%= product.id %>" value=""> 1 </span>
+                                    </div>
+
+                                    <button onclick="incrementar('<%= product.id %>','<%= product.quantity %>')">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div class="card-right">
+                                <div class="img-container">
+                                    <img id="hero-img2" src="/img/hero-image-foodFunnel.jpg" alt="">
+                                </div>
+                                <span class="discount">$<%= product.price %></span>
+                                <span class="price">$23.00</span>
+                            </div>
+                        </li>
+                        <% }); %>
+                </ul>
+            </div>
+        </section>
+
+        <div class="cart-container" id="cart-container">
+            <div class="payment-container" id="payment-container">
+                <hr>
+                <div class="subtotal-container">
+                    <span>Subtotal:</span>
+                    <p>$23.00</p>
+                </div>
+                <hr>
+                <div class="checkout">
+                    <p>Go to checkout</p>
+                </div>
+                <div class="addItems" id="addItems">
+                    <p>Add Items</p>
+                </div>
+            </div>
+        </div>
 </body>
+<script>
+
+    // ________________________________________________________________________________________________
+    //                                      ORDENAR POR ALFABETO
+    // ________________________________________________________________________________________________
+
+    function ordenarAlfabeticamente() {
+        // Obtener el elemento desplegable
+        const desplegable = document.getElementById("desplegable");
+
+        // Obtener los elementos .card dentro del desplegable
+        const cards = Array.from(desplegable.getElementsByClassName("card"));
+
+        // Ordenar las tarjetas alfabéticamente
+        cards.sort((a, b) => {
+            const aName = a.querySelector('.nombre-marca h5').innerText.trim();
+            const bName = b.querySelector('.nombre-marca h5').innerText.trim();
+
+            return aName.localeCompare(bName);
+        });
+
+        // Limpiar el desplegable
+        // desplegable.innerHTML = "";
+
+        // Agrega las tarjetas ordenadas al desplegable
+        cards.forEach((card, id) => {
+            card.style.order = id;
+        });
+    }
+
+
+
+
+
+
+    // ________________________________________________________________________________________________
+    const showCart = document.querySelector('.showCart');
+    const desplegable = document.querySelector('.desplegable');
+    const hideCart = document.querySelector('.hideCart');
+    const ordenadorContainer = document.querySelector('.labels-ordenador')
+
+    showCart.addEventListener('click', (e) => {
+        e.preventDefault();
+        desplegable.classList.add('modal__show');
+        desplegable.classList.remove('modal__hide');
+        ordenadorContainer.style.display = 'flex';
+    });
+
+    hideCart.addEventListener('click', (e) => {
+        e.preventDefault();
+        desplegable.classList.add('modal__hide');
+        desplegable.classList.remove('modal__show');
+        ordenadorContainer.style.display = 'none';
+
+    })
+
+    // _______________________________________________________________________________________________
+
+    function decrementar(id) {
+        const cantidadElement = document.getElementById(`cantidad-${id}`);
+        let cantidad = parseInt(cantidadElement.innerText, 10);
+        if (cantidad > 1) {
+            cantidad--;
+            cantidadElement.innerText = cantidad;
+            // Puedes enviar una solicitud al servidor para actualizar la cantidad allí
+        }
+    }
+
+    function incrementar(id, stock) {
+        const cantidadElement = document.getElementById(`cantidad-${id}`);
+        let cantidad = parseInt(cantidadElement.innerText, 10);
+        if (cantidad < stock) {
+            cantidad++;
+            cantidadElement.innerText = cantidad;
+
+        } else {
+            alert("no hay stock suficiente");
+            // Puedes enviar una solicitud al servidor para actualizar la cantidad allí
+        }
+    }
+
+
+</script>
 
 </html>

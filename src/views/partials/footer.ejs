@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
+
 <body>
     <footer>
-        <li><a href="#"><i class="fa-solid fa-address-card"></i></a>register</li>
-        <li><a href="#"><i class="fa-solid fa-location-dot"></i></a>Location</li>
-        <li></li>
-        <li><a href="#"><i class="fa-solid fa-burger"></i></a>Food</li>
-        <li class="home-footer"><a href="/" class="home-link"><i class="fa-solid fa-house-chimney"></i> Home </a></li>
-        <li><a href="/users/userProfile/1"+${userToLoggedIn.id}><i class="fa-regular fa-user"></i></a>Profile</li>
-       <!--  <li><a href="/admin/main"><i class="fa-regular fa-user" style="color: green;"></i></a>Profile</li> -->
+        <ul class="maxW769pxFooter" >
+            <li><a href="#"><i class="fa-solid fa-address-card"></i></a>register</li>
+            <li><a href="#"><i class="fa-solid fa-location-dot"></i></a>Location</li>
+            <li></li>
+            <li class="home-footer"><a href="/" class="home-link"><i class="fa-solid fa-house-chimney"></i> Home </a>
+            <li><a href="#"><i class="fa-solid fa-burger"></i></a>Food</li>
+            </li>
+            <li><a href="/users/userProfile/1" +${userToLoggedIn.id}><i class="fa-regular fa-user"></i></a>Profile</li>
+            <!--  <li><a href="/admin/main"><i class="fa-regular fa-user" style="color: green;"></i></a>Profile</li> -->
+        </ul>
+
+        <ul class="minW769pxFooter">
+            <li class="minW769pxFooterLogo"><img src="/img/FunnelLogo.png" alt="">
+            <ol class="footerLogoOl">
+                <li>Food Funnel</li>
+                <li>+3264565433</li>
+                <li></li>
+            </ol>
+            </li>
+            <li class="minW769pxFooterLink">qsdqsdq</li>
+            <li class="minW769pxFooterLink">sdqsdqsdqsdqsdqsd</li>
+            <li class="goTop-btn" id="goTop-btn"><i class="fa-solid fa-chevron-up"></i></li>
+        </ul>
     </footer>
 </body>
+
 </html>

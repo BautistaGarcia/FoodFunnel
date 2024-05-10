@@ -2,42 +2,74 @@
 <html lang="en">
 
 <header>
+
+    <a href="/" class="goBack-btn-769px">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a>
     <nav>
-        <a href="/products/search"><i class="fa-solid fa-magnifying-glass pointer"></i></a>
-        <a href="/">Food Funnel </a> 
-        <i class="fa-solid fa-ellipsis-vertical pointer" id="btnMenu"></i>
+        <a href="/" class="logo-container">
+            <img src="/img/FunnelLogo.png" alt="">
+            <input type="search" name="search" id="search" placeholder="Search products">
+        </a>
+        <div class="navBar-MinW769px">
+            <p class="navBar-link">categories</p>
+            <p class="navBar-link">restaurants</p>
+            <p class="navBar-link">link</p>
+            <p class="navBar-link">link</p>
+            <p class="navBar-link">link</p>
+            <i class="fa-solid fa-ellipsis-vertical pointer" id="btnMenu"></i>
+        </div>
+        <div class="navBar-MaxW769px">
+            <a href="/products/search"><i class="fa-solid fa-magnifying-glass pointer"></i></a>
+            <a href="/" class="FoodFunnelText">Food Funnel </a>
+            <i class="fa-solid fa-ellipsis-vertical pointer" id="btnMenu"></i>
+        </div>
+
     </nav>
 </header>
-    <aside class="burguerMenu" id="burguerMenu">
-        <li class="closeBMBtn"><i class="fa-solid fa-x" id="closeBMBtn"></i></li>
-        <div class="burguerMenu-firstSection">
+<aside class="burguerMenu" id="burguerMenu">
+    <li class="closeBMBtn"><i class="fa-solid fa-x" id="closeBMBtn"></i></li>
+    <div class="burguerMenu-firstSection">
 
-            <a href="/users/profile/" class="image-container">
-                <img src="/img/foto-presentacion.jpg" alt="">
-            </a>
-            <div class="email-burguerMenu" id="email-burguerMenu" onclick="showModalBurguerMenu()">
-                <p>Bautista vista no dinamica!!</p>
-                <span>Bautista.garcia.oliver@gmail.com</span>
-                    <div class="chevronBtn-burguerMenu">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-            </div>
-            <div class="userDescription-burguerMenu" id="userDescription-burguerMenu">
-                <span style="text-decoration: underline; color: white;">Your info</span>
-                <p>User Type: Common_user</p>
-                <p>Country: Belgium</p>
-                <p>Registered Date: 24/04/08</p>
+        <a href="/users/profile/" class="image-container">
+            <img src="/img/foto-presentacion.jpg" alt="">
+        </a>
+        <div class="email-burguerMenu" id="email-burguerMenu" onclick="showModalBurguerMenu()">
+            <p>Bautista vista no dinamica!!</p>
+            <span>Bautista.garcia.oliver@gmail.com</span>
+            <div class="chevronBtn-burguerMenu">
+                <i class="fa-solid fa-chevron-down"></i>
             </div>
         </div>
-        <ul class="links-container-burguerMenu">
-            <li class="links-burguerMenu"><a href="/">Home</a></li>
-            <li class="links-burguerMenu"><a href="/order">Your Order</a></li>
-            <li class="links-burguerMenu"><a href="/products/all">All Products</a></li>
-            <li class="links-burguerMenu"><a href="/users/login">Login</a></li>
-            <li class="links-burguerMenu"><a href="/users/register">Register</a></li>
-            <li class="links-burguerMenu"><a href="/">Log Out</a></li>
-        </aside>
-        </ul>
+        <div class="userDescription-burguerMenu" id="userDescription-burguerMenu">
+            <span style="text-decoration: underline; color: white;">Your info</span>
+            <p>User Type: Common_user</p>
+            <p>Country: Belgium</p>
+            <p>Registered Date: 24/04/08</p>
+        </div>
+    </div>
+    <ul class="links-container-burguerMenu">
+        <li class="links-burguerMenu">
+            <a href="/">Home</a>
+        </li>
+        <li class="links-burguerMenu">
+            <a href="products/order">Your Order</a>
+        </li>
+        <li class="links-burguerMenu">
+            <a href="/products/all">All Products</a>
+        </li>
+        <li class="links-burguerMenu">
+            <a href="/users/login">Login</a>
+        </li>
+        <li class="links-burguerMenu">
+            <a href="/users/register">Register</a>
+        </li>
+        <li class="links-burguerMenu">
+            <a href="/">Log Out</a>
+        </li>
+    </ul>
+</aside>
 
 <script src="/scripts/header.js"></script>
+
 </html>

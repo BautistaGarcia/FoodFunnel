@@ -1,51 +1,184 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    scrollbar-width: thin;
-    scrollbar-color: wheat;
-    list-style: none;
-    text-decoration: none;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	scrollbar-width: thin;
+	scrollbar-color: wheat;
+
 }
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-    padding-top: 10vh;
-    padding-bottom: 5vh;
+	padding-top: 10vh;
+	padding-bottom: 5vh;
 }
 
+/* reset css */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-    text-wrap: balance;
-} /* para que el texto no se vea tan mierdas cuando no entre en el viewport */
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-decoration: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* para que el texto no se vea tan mierdas cuando no entre en el viewport */
 
 img {
-    width: 100%;
-    object-fit: cover;
-    flex: 1 0 100%;
+	width: 100%;
+	object-fit: cover;
+	flex: 1 0 100%;
 }
 
 /* Properties */
 
 .property-TNotSelect {
-	/* ponga esta clase es para evitar que seleccionen el texto */
-	-webkit-user-select: none; /* Safari */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* Internet Explorer */
-	user-select: none; /* Standard syntax */
+	/* ponga esta clase es para evitar que 
+	seleccionen el texto */
+	-webkit-user-select: none;
+	/* Safari */
+	-moz-user-select: none;
+	/* Firefox */
+	-ms-user-select: none;
+	/* Internet Explorer */
+	user-select: none;
+	/* Standard syntax */
 }
 
 /* custom classes */
 
 .pointer {
 	cursor: pointer;
+}
+
+.help {
+	cursor: help;
 }
 
 .flex {

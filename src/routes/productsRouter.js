@@ -8,8 +8,10 @@ const { body, check } = require('express-validator');
 
 const authMiddleware = require("../middlewares/authMiddleware")
 const productsController = require("../controllers/productsController");
+const lastSeenMiddlewares = require('../middlewares/productSeen.js'); 
 
-router.get('/productDetail/:id', productsController.productDetail);
+
+router.get('/productDetail/:id', lastSeenMiddlewares , productsController.productDetail);
 
 router.get('/all', productsController.allProducts);
 

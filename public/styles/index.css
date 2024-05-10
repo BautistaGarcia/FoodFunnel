@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    /*     outline: 1px solid red; */
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 .main-container {
     .slider-wrapper {
         position: relative;
-        max-width: 50rem;
+        max-width: 1000px;
         margin: 0 auto;
 
         .slider {
@@ -54,27 +55,18 @@ body {
     }
 }
 
-.promotion {
-    position: relative;
+.expand-offert-banner {
     display: flex;
     justify-content: center;
-    width: 100%;
+    color: white;
+    background: #9b6b13;
+    border: 2px solid white;
+    border-radius: 18px;
+}
 
-
-    .expand-offert-banner {
-        position: absolute;
-        bottom: 0;
-        color: white;
-        background: #7c560e;
-        border: 2px solid white;
-        padding: 5.5px;
-        border-radius: 18px;
-    }
-
-    img {
-        width: 100%;
-        border-radius: 50px;
-    }
+.second-container {
+    width: 85%;
+    margin: auto;
 }
 
 .flex-slider {
@@ -82,8 +74,8 @@ body {
     flex-direction: column;
     box-shadow: inset 0 0 13px 1px gray;
     border-radius: 18px;
-    margin: 1rem auto 1rem auto;
     justify-content: center;
+    overflow: hidden;
 
     .allCategories {
         display: flex;
@@ -92,7 +84,7 @@ body {
         width: auto;
 
         .allCategories-link {
-            border: 1px solid #000000;
+            outline: 1px solid #000000;
             background: #b52525;
             color: wheat;
             padding: 10px;
@@ -105,27 +97,37 @@ body {
     }
 
     .grid-item {
-        display: grid;
+        width: 200vw;
+        display: flex;
         gap: 5px;
         padding: 1rem;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        overflow-y: scroll;
+
 
         .category-item {
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-                img {
-                    border-radius: 18px;
-                    width: 100%;
-                }
 
-            span { /* Category Name */
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            img {
+                border-radius: 18px;
+                width: 100%;
+                height: 5em;
+                aspect-ratio: 16/4;
+                filter: brightness(0.75);
+
+                &:hover {
+                    filter: brightness(1);
+                }
+            }
+
+            span {
+                /* Category Name */
                 position: absolute;
                 font-size: 28px;
-                color: black;
+                color: #fff;
+                text-shadow: 2px 2px  #b52525;
             }
 
         }
@@ -135,10 +137,10 @@ body {
 }
 
 .hotSale-tittle {
-    width: 100%;
+    width: 95%;
     display: flex;
     justify-content: space-around;
-    margin: 1rem 0 0.5rem 0;
+    margin: auto;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid gray;
 
@@ -161,21 +163,31 @@ body {
 .restaurant-links {
     position: absolute;
     font-size: 24px;
+    transform: translateY(-15px);
     z-index: 10;
     padding: 5px;
     background: #b52525;
     letter-spacing: 2px;
     color: wheat;
     border: black solid 2px;
-    margin: 5px;
     border-radius: 10px;
-    box-shadow: inset 0px 0px 5px 2px;
+    cursor: pointer;
 }
 
 .hotSale-carousel {
+    background: #ffff;
     display: flex;
+    margin: 3.5rem 0;
+    padding: 1rem 0;
+    border-radius: 20px;
     flex-wrap: wrap;
     position: relative;
+    box-shadow: -5px 8px 10px 0px lightgray;
+
+    &:hover .btnsCards {
+        opacity: 0.65;
+    } 
+
 
     .btnsCards-right {
         right: 0;
@@ -195,7 +207,7 @@ body {
         background: wheat;
         padding: 5px 10px;
         z-index: 1;
-        opacity: 0.5;
+        opacity: 0.45;
 
         i {
             display: flex;
@@ -204,7 +216,9 @@ body {
         }
 
         &:hover {
-            opacity: 0.7;
+            opacity: 0.85;
+            background: #5691ff48;
+            color: white;
         }
     }
 
@@ -218,7 +232,7 @@ body {
         .food-card {
             flex: 0 0 auto;
             width: 250px;
-            margin: 1rem;
+            margin: 1rem 0.5rem;
             position: relative;
             border: 1px solid black;
             border-radius: 12px;
@@ -244,7 +258,7 @@ body {
                 top: 0;
                 display: flex;
                 align-items: center;
-                justify-content: space-evenly;
+                justify-content: center;
                 padding: 3px;
                 border-radius: 12px 12px 0 0;
                 color: wheat;
@@ -253,13 +267,23 @@ body {
             }
 
             p {
+                width: 100%;
                 display: flex;
                 justify-content: start;
+                margin-left: 10px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
 
                 span {
                     font-size: 18px;
                     color: rgb(255, 136, 0);
                     margin-left: 5px;
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
                 }
             }
 
@@ -299,10 +323,8 @@ body {
 
             img {
                 width: 100%;
-                border-radius: 12px 12px 0 0;
+                border-radius: inherit;
             }
-
-
         }
     }
 }
@@ -342,8 +364,9 @@ body {
 /* ------------------------------------------------------------------ */
 /*SECTION BRANDS*/
 .main__section-brands-slider {
+
     overflow: hidden;
-    height: 115px;
+    height: 200px;
 
     /*----- Contenedor logos -----*/
 
@@ -354,7 +377,7 @@ body {
         white-space: nowrap;
         position: relative;
         border-radius: 8px 8px 0px 0px;
-        background-color: var(--black-color);
+        background-color: black;
     }
 
     /*----- Efecto blur/fade en ambos extremos del contenedor -----*/
@@ -372,17 +395,13 @@ body {
     .div__brands-box:before {
         left: 0;
         border-radius: 8px;
-        background: linear-gradient(to left,
-                var(--transparent-color),
-                var(--black-color));
+        background: linear-gradient(to left, #ffffff00, #000000);
     }
 
     .div__brands-box:after {
         right: 0;
         border-radius: 8px;
-        background: linear-gradient(to right,
-                var(--transparent-color),
-                var(--black-color));
+        background: linear-gradient(to right, #ffffff00, #000000);
     }
 
     /*----- Detener la animación -----*/
@@ -405,9 +424,7 @@ body {
     }
 
     .a__content-image {
-        width: 200px;
-        height: 60px;
-        margin: 0 40px;
+        margin: 5px;
 
         img:hover {
             cursor: pointer;
@@ -522,13 +539,13 @@ body {
 }
 
 .modalWindow-blur {
-/*     position: fixed; */
+    /*     position: fixed; */
     top: 0;
     width: 100vw;
     background: rgba(251, 251, 251, 0.147);
     height: 100vh;
     z-index: 999;
-    
+
 }
 
 /*  MEDIA QUERIES */
@@ -536,31 +553,9 @@ body {
 
 @media (min-width:425px) {
 
-    .promotion {
-        height: 20vh;
-    }
-
     .second-container {
         width: 85%;
         margin: auto;
-        overflow: hidden;
-
-    }
-
-    .flex-slider {
-
-        .grid-item {
-            display: grid;
-            gap: 5px;
-            padding: 5px;
-            grid-template-columns: repeat(3, 1fr);
-        
-            .category-item {
-                img {
-                    height: 20vh;
-                }
-            }
-        }
     }
 
     .hotSale-tittle {
@@ -568,24 +563,29 @@ body {
         justify-content: space-between;
     }
 
-
+    .hotSale-carousel .btnsCards {
+        opacity: 0;
+    }
 }
 
 @media (min-width:769px) {
+    .slider-wrapper {
+        padding: 0 7.5%;
 
-    .flex-slider {
-
-        .grid-item {
-            display: grid;
-            gap: 5px;
-            padding: 5px;
-            grid-template-columns: repeat(5, 1fr);
-        }
     }
 }
 
-@media (min-width: 1024px) {
-    .promotion {
-        height: 40vh;
-    }
+@media (min-width: 1024px) {}
+
+#timer {
+    margin-left: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#timer-finished {
+    background-color: #28a745;
+}
+
+#timer:hover {
+    cursor: pointer;
 }

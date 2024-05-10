@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/styles/productDetail.css">
     <%- include('./partials/head') %>
         <title>Product Detail</title>
-        <script  type="module">
+        <script type="module">
+            /* socket io */
             import { io } from 'http://cdn.socket.io/4.3.2/socket.io.esm.min.js';
 
             const socket = io();
@@ -19,7 +20,9 @@
 
             socket.on('chat message', (msg) => {
                 const item = `<li>${msg}</li>`;
-                messagesUl.insertAdjacentHTML('beforeend', item)
+                messagesUl.insertAdjacentHTML('beforeend', item);
+                /* scroll to bottom of messages */
+                messagesUl.scrollTop = messagesUl.scrollHeight;
             });
 
             form.addEventListener('submit', (e) => {
@@ -29,22 +32,54 @@
                     socket.emit('chat message', input.value)
                     input.value = ''
                 }
+
             });
+            /* socket io FIN */
+
+            /* TIMERS PRODUCTS */
+const timer = document.getElementById("timer");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
+
+let timeLeft = 60 * 60 * 3; // 3 hours in seconds
+
+function updateTimer() {
+  const hoursLeft = Math.floor(timeLeft / 3600);
+  const minutesLeft = Math.floor((timeLeft % 3600) / 60);
+  const secondsLeft = timeLeft % 60;
+
+  hours.textContent = hoursLeft.toString().padStart(2, "0");
+  minutes.textContent = minutesLeft.toString().padStart(2, "0");
+  seconds.textContent = secondsLeft.toString().padStart(2, "0");
+
+  if (timeLeft == 0) {
+    clearInterval(intervalId);
+    timer.classList.add("timer-finished");
+  }
+
+  timeLeft--;
+}
+
+let intervalId = setInterval(updateTimer, 1000);
+
+timer.addEventListener("click", function () {
+  timeLeft = 60 * 60 * 3;
+  timer.classList.remove("timer-finished");
+});
+/* TIMERS PRODUCTS FIN */
         </script>
 </head>
 <%- include('./partials/header') %>
 
     <body>
         <article class="single-card">
-            <div class="goBack-container">
-                <a href="/"><i class="fa-solid fa-arrow-left"></i></a>
-            </div>
             <div class="image-container">
                 <img src="/img/hero-image-foodFunnel.jpg" alt="">
+                <div class="image-sliderBar"><i class="fa-solid fa-expand"></i></div>
             </div>
             <ul class="text">
                 <div class="admin-section">
-
                     <li>
                         <i class="fa-solid fa-percent"></i>
                         <p>
@@ -53,29 +88,31 @@
                     </li>
                     <li>
                         <i class="fa-solid fa-stopwatch"></i>
-                        <p>04:42:02</p>
+                        <div id="timer">
+                            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                        </div>
                     </li>
                 </div>
-
+                
                 <div class="product-offert-container">
-                    <li class="edit-product">
+                    <button class="edit-product">
                         <a href="/edit/<%=products.id%>">Edit</a>
-                    </li>
-                    <li class="delete-product">
-                        <a href="/delete/<%=products.id%>">Delete</a>
-                    </li>
+                    </button>
+                    <button class="delete-product">
+                        <a href="/delete/<%=products.id%>">DELETE</a>
+                    </button>
                 </div>
                 <div class="productDescription">
+                    <li><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                        class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                        class="fa-regular fa-star"></i>
+                    <span>0/5</span>
+                </li>
                     <li>
                         <%= products.name %>
                     </li>
                     <li>
                         <%= products.description %>
-                    </li>
-                    <li><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
-                            class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
-                            class="fa-regular fa-star"></i>
-                        <span>0/5</span>
                     </li>
 
                     <li>
@@ -89,15 +126,15 @@
                         <p>Add To Order</p>
                     </li>
                 </div>
+                <section id="chat">
+                    <ul id="messages"></ul>
+                    <form id="form">
+                        <input type="text" name="message" id="input" placeholder="Type a message" autocomplete="off">
+                        <button type="submit">Submit</button>
+                    </form>
+                </section>
             </ul>
         </article>
-        <section id="chat">
-            <ul id="messages"></ul>
-            <form id="form">
-                <input type="text" name="message" id="input" placeholder="Type a message" autocomplete="off">
-                <button type="submit">Submit</button>
-            </form>
-        </section>
         <section class="total-container">
             <span class="total">Total
                 <span>$<%= products.price %>

@@ -5,15 +5,32 @@ const app = express();
 const fs = require("fs");
 const db = require("../data/database/models");
 const { log } = require("console");
-const { Op, where } = require("sequelize");
+const { Op, where, Association } = require("sequelize");
 
 //--> const productsJSON = path.join(__dirname, "../data/productsDataBase.json");
 
 
 const mainController = {
-    
-    index: async (req, res) => {        
+
+    index: async (req, res) => {
         try {
+            let lastSeenArr = [];
+            seenProducts = req.session.lastSeens;
+
+            if (seenProducts && seenProducts.length > 0) {
+
+                lastSeenArr = await db.Products.findAll({
+                    where: {// comparamos ke haya coincidencia entre el id de los productos en base de datos con el array de los last seens
+                        id: req.session.lastSeens
+                    },
+
+                    include: [
+                        { association: "brand", attributes: ["brand_name"] },
+                        { association: "category" },
+                        { association: "state" },
+                    ],
+                });
+            }
             let products = await db.Products.findAll();
             let offerts = await db.Products.findAll({
                 where: {
@@ -51,15 +68,15 @@ const mainController = {
                 }
             });
 
-            res.render("index", { products, offerts, mcDonaldsProducts, tomassoProducts, deanAndDennisProducts, shawarmiProducts })
+            res.render("index", { products, 'LastSeenProducts': lastSeenArr, offerts, mcDonaldsProducts, tomassoProducts, deanAndDennisProducts, shawarmiProducts })
         } catch (err) {
             console.log(err)
             res.render("404Found");
         }
 
     },
-    
-    
+
+
     /*      JSON CONTROLLER
     index: (req, res) => {
         const products = JSON.parse(fs.readFileSync(productsJSON, 'utf-8'));
@@ -68,7 +85,7 @@ const mainController = {
         
         res.render("index.ejs", {products, ofertedProducts, restaurantProducts})
     }, 
-    JSON CONTROLLER    */
+            JSON CONTROLLER    */
 }
 
 module.exports = mainController;

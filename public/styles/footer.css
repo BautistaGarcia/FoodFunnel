@@ -1,4 +1,3 @@
-
 footer {
     z-index: 999;
     position: fixed;
@@ -15,6 +14,11 @@ footer {
     box-shadow: inset 0px 5px 10px 2px lightgray;
 
 
+    .minW769pxFooter {
+        display: none;
+    }
+
+
 
     .home-footer {
         position: absolute;
@@ -28,7 +32,7 @@ footer {
         box-shadow: inset 0px 0px 10px 0px;
         border: 3px white solid;
 
-        
+
         .home-link {
             border-radius: 50%;
             padding: 10px;
@@ -43,9 +47,59 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
         i {
             font-size: 20px;
+        }
+    }
+}
+
+#goTop-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #f5deb3c7;
+    padding: 5px;
+    font-size: 25px;
+    border-radius: 10px;
+    color: black;
+}
+
+.maxW769pxFooter {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (min-width: 769px) {
+
+    .minW769pxFooterLogo {
+        width: 125px;
+        border-radius: 50%;
+        border: 1px solid gainsboro;
+        box-shadow: 0 0 10px 0px gray;
+
+        img {
+            border-radius: inherit;
+        }
+    }
+
+    footer {
+        position: relative;
+        background: whitesmoke;
+
+        .minW769pxFooter {
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+
+            .minW769pxFooterLink {
+
+            }
+        }
+
+        .maxW769pxFooter {
+            display: none;
         }
     }
 }
